@@ -11,6 +11,7 @@ const page = () => {
               <h1 className='text-primary pl-2'>Login</h1>
             </div>
             <form action="" className="flex flex-col items-center w-full gap-4">
+
                 <input type="text"
                     className=' bg-field h-12 pl-2 rounded-xl w-2/3'
                     placeholder='juandelacruz@gmail.com'>
@@ -29,6 +30,7 @@ const page = () => {
                 <div className="w-2/3 flex justify-end">
                     <button className='bg-primary text-white text-2xl px-6 py-2 rounded-full'>Submit</button>
                 </div>
+                
             </form>
         </div>
         <div className="w-3/5">
