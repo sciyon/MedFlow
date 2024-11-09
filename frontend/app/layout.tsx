@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sharpSans.variable} ${nunitoSans.variable} antialiased`}
+        className={`${sharpSans.variable} ${nunitoSans.variable} antialiased min-h-screen`}
       >
         {children}
       </body>

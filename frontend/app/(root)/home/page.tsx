@@ -2,9 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
-        <h1>Landing</h1>
-    </div>
+    <div>ERWIN:"OSCNA:JLSDB</div>
   )
 }
 
