@@ -11,7 +11,7 @@ const Navbar = () => {
           <Logo />
         </Link>
         <div className='flex px-5 py-3 gap-28 items-center text-black'>
-            <Link href='/home' className='navbarlink'>
+            <Link href='/' className='navbarlink'>
                 Home
             </Link>
             <Link href='/services' className='navbarlink'>
