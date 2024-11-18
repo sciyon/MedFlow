@@ -28,7 +28,7 @@ body {
 
 @layer utilities{
     .input-field{
-        @apply h-12 pl-2 rounded-xl bg-field text-white placeholder:text-gray-300 text-lg font-[var(--font-host-sans)]
+        @apply h-12 pl-4 rounded-xl bg-field text-white placeholder:text-gray-300 text-lg font-[var(--font-host-sans)]
     }
 
     .input-label{

@@ -18,7 +18,7 @@ const page = () => {
                 </input>
                 <input type="password"
                     className='input-field w-2/3'
-                    placeholder='password123'>
+                    placeholder='password'>
                 </input>
                 <div className="flex justify-between w-2/3">
                   <div className="flex gap-2">

@@ -85,6 +85,34 @@ const page = () => {
                 </div>
                 
             </form>
+
+            <div className="">
+                <p className='text-center'>or</p>
+                <div className="flex flex-row border-2 rounded-xl mt-4">
+                    <Image
+                        className='rounded mr-1'
+                        src="/auth/google.png"
+                        alt="Login image"
+                        width={40}
+                        height={40}
+                    />
+                    <button className='font-bold'>
+                        Sign up with Google
+                    </button>
+                </div>
+                <div className="flex flex-row border-2 rounded-xl mt-4">
+                    <Image
+                        className='rounded mr-1'
+                        src="/auth/facebook.png"
+                        alt="Login image"
+                        width={40}
+                        height={40}
+                    />
+                    <button className='font-bold'>
+                        Sign up with Facebook
+                    </button>
+                </div>
+            </div>
         </div>
         <div className="w-2/5 h-3/4 rounded-lg">
             <Image 
