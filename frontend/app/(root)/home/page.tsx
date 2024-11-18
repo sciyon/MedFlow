@@ -2,7 +2,9 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className ='bg-cyan-200'>Dashbaord things</div>
+    <div className='bg-cyan-200 min-h-screen'>
+      Dashbaord things
+    </div>
   )
 }
 
