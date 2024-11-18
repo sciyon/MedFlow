@@ -13,11 +13,11 @@ const page = () => {
             <form action="" className="flex flex-col items-center w-full gap-4">
 
                 <input type="text"
-                    className=' bg-field h-12 pl-2 rounded-xl w-2/3'
+                    className=' input-field w-2/3'
                     placeholder='juandelacruz@gmail.com'>
                 </input>
                 <input type="password"
-                    className='bg-field h-12 pl-2 rounded-xl w-2/3'
+                    className='input-field w-2/3'
                     placeholder='password123'>
                 </input>
                 <div className="flex justify-between w-2/3">

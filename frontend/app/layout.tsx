@@ -16,6 +16,13 @@ const nunitoSans = localFont({
   style: 'bold'
 })
 
+const montserratSans = localFont({
+  src: './fonts/Montserrat.ttf',
+  variable: "--font-montserrat-sans",
+  weight: '400',
+  style: 'normal'
+})
+
 export const metadata: Metadata = {
   title: "MedFlow",
   description: "A medical information system.",
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sharpSans.variable} ${nunitoSans.variable} antialiased min-h-screen`}
+        className={`${sharpSans.variable} ${nunitoSans.variable} ${montserratSans.variable} antialiased min-h-screen`}
       >
         {children}
       </body>
