@@ -13,7 +13,7 @@ export default {
         secondary: "#006D77",
         warning: "#FCAA62",
         danger: "#EC8484",
-        field: "#D9D9D9",
+        field: "#9F9F9F",
         black: "#000000",
         background: "#F3F5F1",
       },
