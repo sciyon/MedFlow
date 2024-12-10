@@ -1,27 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Montserrat, Gabarito, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const sharpSans = localFont({
-  src: './fonts/HostGrotesk.ttf',
-  variable: "--font-host-bold",
-  weight: '800',
-  style: 'bold'
-})
+// Load the fonts
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
-const nunitoSans = localFont({
-  src: './fonts/NunitoSans.ttf',
-  variable: "--font-nunito-sans",
-  weight: '400',
-  style: 'bold'
-})
+const gabarito = Gabarito({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
-const montserratSans = localFont({
-  src: './fonts/Montserrat.ttf',
-  variable: "--font-montserrat-sans",
-  weight: '400',
-  style: 'normal'
-})
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "MedFlow",
@@ -34,10 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${sharpSans.variable} ${nunitoSans.variable} ${montserratSans.variable} antialiased min-h-screen`}
-      >
+    <html lang="en" className={`${montserrat.className} ${gabarito.className} ${nunitoSans.className}`}>
+      <body className={`antialiased min-h-screen`}>
         {children}
       </body>
     </html>

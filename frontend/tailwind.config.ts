@@ -11,11 +11,17 @@ export default {
       colors: {
         primary: "#83C5BE",
         secondary: "#006D77",
+        third: "#7DB7B1",
         warning: "#FCAA62",
         danger: "#EC8484",
         field: "#9F9F9F",
         black: "#000000",
         background: "#F3F5F1",
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        gabarito: ['Gabarito', 'sans-serif'],
+        nunito: ['Nunito Sans', 'sans-serif'],
       },
     },
   },

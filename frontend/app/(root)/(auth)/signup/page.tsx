@@ -1,20 +1,19 @@
-import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 
 const page = () => {
   return (
-    <div className='flex h-full text-black m-8'>
-        <div className="w-3/5 flex flex-col justify-start items-center">
-            <div className="flex text-8xl font-bold mb-8">
+    <div className='grid grid-cols-3 h-full w-full text-black m-8'>
+        <div className="col-span-2 flex flex-col justify-start items-center px-14">
+            <div className="flex text-8xl font-bold mb-8 justify-start font-gabarito">
               <h1>User</h1>
               <h1 className='text-primary pl-6 text-left'>Registration</h1>
             </div>
             <form action="" className="flex flex-col w-full p-5">
                 <div className="flex flex-row w-full gap-2 pb-4">
                     <div className="flex flex-col w-2/5">
-                        <label className='input-label'>
-                            First Name
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            First Name *
                         </label>
                         <input type="text"
                             className='input-field'
@@ -22,8 +21,8 @@ const page = () => {
                         />
                     </div>
                     <div className="flex flex-col w-2/5">
-                        <label className='input-label'>
-                            Last Name
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Last Name *
                         </label>
                         <input type="text"
                             className='input-field'
@@ -31,8 +30,8 @@ const page = () => {
                         />
                     </div>
                     <div className="flex flex-col w-1/5">
-                        <label className='input-label'>
-                            Middle Name (Optional)
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Middle Name
                         </label>
                         <input type="text"
                             className='input-field'
@@ -42,8 +41,8 @@ const page = () => {
                 </div>                
                 <div className="flex flex-row w-full gap-2 pb-4">
                     <div className="flex flex-col w-3/5">
-                        <label className='input-label'>
-                            Email
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Email *
                         </label>
                         <input type="text"
                             className='input-field'
@@ -51,8 +50,8 @@ const page = () => {
                         />
                     </div>
                     <div className="flex flex-col w-2/5">
-                        <label className='input-label'>
-                            Phone Number
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Phone Number *
                         </label>
                         <input type="text"
                             className='input-field'
@@ -62,8 +61,8 @@ const page = () => {
                 </div>                
                 <div className="flex flex-row w-full gap-2 pb-4">
                     <div className="flex flex-col w-2/4">
-                        <label className='input-label'>
-                            Password
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Password *
                         </label>
                         <input type="password"
                             className='input-field'
@@ -71,8 +70,8 @@ const page = () => {
                         />
                     </div>
                     <div className="flex flex-col w-2/4">
-                        <label className='input-label'>
-                            Confirm Password
+                        <label className='text-secondary font-nunito text-lg font-semibold'>
+                            Confirm Password *
                         </label>
                         <input type="password"
                             className='input-field'
@@ -114,7 +113,7 @@ const page = () => {
                 </div>
             </div>
         </div>
-        <div className="w-2/5 h-3/4 rounded-lg">
+        <div className="rounded-lg">
             <Image 
                 className='rounded-xl'
                 src="/signup.jpg"
