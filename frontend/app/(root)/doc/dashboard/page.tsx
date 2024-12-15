@@ -1,11 +1,10 @@
 import React from 'react'
 
 const page = () => {
-
-
-
   return (
-    <div>INFO PAGE NI</div>
+    <div>
+      THIS IS THE DOCTORS DASHBOARD
+    </div>
   )
 }
 
