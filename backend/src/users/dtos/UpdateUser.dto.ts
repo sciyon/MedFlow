@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
 
 export class UpdateUserDto {
   @IsString()
@@ -9,7 +9,7 @@ export class UpdateUserDto {
   @IsNotEmpty()
   password: string;
   
-  @IsString()
+  @IsBoolean()
   @IsNotEmpty()
-  status: string;
+  status: boolean;
 }
