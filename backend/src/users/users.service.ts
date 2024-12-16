@@ -10,6 +10,10 @@ export class UsersService {
     return this.prisma.user.create({ data })
   }
 
+  create_user_data(data: Prisma.UserdataCreateInput){
+    return this.prisma.userdata.create({ data })
+  }
+
   get_users(){
     return this.prisma.user.findMany({ include : { user_data: true } });
   }
