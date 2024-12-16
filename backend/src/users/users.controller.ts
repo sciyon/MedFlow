@@ -8,10 +8,14 @@ import { CreateUserDataDto } from "./dtos/CreateUserData.dto";
 export class UsersController{
   constructor(private usersService: UsersService) {}
 
-  @Post()
+  @Post('register')
   @UsePipes(ValidationPipe)
-  create_user(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create_user(createUserDto)
+  async register(@Body() createUserDto: CreateUserDto) {
+    try {
+      return await this.usersService.create_user(createUserDto);
+    } catch (error) {
+      throw new HttpException(error.response, error.status);
+    }
   }
 
   @Post('data')
@@ -24,6 +28,7 @@ export class UsersController{
   get_users(){
     return this.usersService.get_users()
   }
+  
 
   @Get(':id')
   async get_user_by_id(@Param('id', ParseIntPipe) id: number){
