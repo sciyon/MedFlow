@@ -24,7 +24,7 @@ const appointmenthistory: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  // Simulate fetching data (replace with actual API call)
+
   useEffect(() => {
     setAppointments(initialAppointments);
   }, []);
