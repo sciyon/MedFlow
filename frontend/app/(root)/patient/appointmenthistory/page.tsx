@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
 
 interface Appointment {
   id: string;
@@ -57,30 +56,30 @@ const AppointmentHistory: React.FC = () => {
         <div className="flex items-center mb-4 space-x-4">
           {/* View Dropdown */}
           <div className="flex items-center space-x-2">
-            <label htmlFor="view" className="text-teal-700">View:</label>
+            <label htmlFor="view" className="text-teal-700 font-bold">View:</label>
             <select
               id="view"
-              className="p-2 border rounded"
+              className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600"
               value={view}
               onChange={(e) => setView(e.target.value)}
             >
               <option value="list">List</option>
-              <option value="calendar">Calendar</option>
+              <option value="calendar" >Calendar</option>
             </select>
           </div>
 
           {/* Search by ID */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 ">
             <input
               type="text"
               placeholder="XXXXXX-XXXXX"
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
-              className="p-2 border rounded"
+              className="p-2 border rounded focus:outline-none"
             />
             <button
               onClick={handleSearch}
-              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"
+              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 font-bold"
             >
               Search by ID
             </button>
@@ -88,10 +87,10 @@ const AppointmentHistory: React.FC = () => {
 
           {/* Sort Dropdown for Status */}
           <div className="flex items-center space-x-2">
-            <label htmlFor="status" className="text-teal-700">Sort:</label>
+            <label htmlFor="status" className="text-teal-700 font-bold">Sort:</label>
             <select
               id="status"
-              className="p-2 border rounded"
+              className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600"
               value={sortStatus}
               onChange={(e) => setSortStatus(e.target.value)}
             >
@@ -106,22 +105,22 @@ const AppointmentHistory: React.FC = () => {
         {/* Table */}
         <table className="w-full text-left border-collapse rounded-lg">
           <thead>
-            <tr className="bg-teal-100">
-              <th className="py-2 px-4 border">ID</th>
-              <th className="py-2 px-4 border">Date</th>
-              <th className="py-2 px-4 border">Time</th>
-              <th className="py-2 px-4 border">Concern</th>
-              <th className="py-2 px-4 border">Status</th>
+            <tr className="bg-teal-500">
+              <th className="py-2 px-4 border-b border-teal-500">ID</th>
+              <th className="py-2 px-4 border-b border-teal-500">Date</th>
+              <th className="py-2 px-4 border-b border-teal-500">Time</th>
+              <th className="py-2 px-4 border-b border-teal-500">Concern</th>
+              <th className="py-2 px-4 border-b border-teal-500">Status</th>
             </tr>
           </thead>
           <tbody>
             {paginatedData.map((appointment, index) => (
               <tr key={index} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border">{appointment.id}</td>
-                <td className="py-2 px-4 border">{appointment.date}</td>
-                <td className="py-2 px-4 border">{appointment.time}</td>
-                <td className="py-2 px-4 border">{appointment.concern}</td>
-                <td className="py-2 px-4 border">
+                <td className="py-2 px-4 border-b border-teal-500">{appointment.id}</td>
+                <td className="py-2 px-4 border-b border-teal-500">{appointment.date}</td>
+                <td className="py-2 px-4 border-b border-teal-500">{appointment.time}</td>
+                <td className="py-2 px-4 border-b border-teal-500">{appointment.concern}</td>
+                <td className="py-2 px-4 border-b border-teal-500">
                 <span className="flex items-center space-x-2">
   <span
     className={`w-3.5 h-3.5 rounded-full ${
