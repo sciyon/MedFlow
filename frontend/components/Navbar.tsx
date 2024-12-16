@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import React from 'react'
 import Logo from './Logo'
 
@@ -10,7 +9,7 @@ const Navbar = () => {
         <Link href='/' className='w-fit'>
           <Logo />
         </Link>
-        <div className='flex px-5 py-3 gap-28 items-center text-black'>
+        <div className='flex px-5 py-3 gap-28 items-center font-montserrat font-medium text-secondary text-lg'>
             <Link href='/' className='navbarlink'>
                 Home
             </Link>
@@ -20,7 +19,7 @@ const Navbar = () => {
             <Link href='/about' className='navbarlink'>
                 About Us
             </Link>
-            <Link href='/about' className='navbarlink'>
+            <Link href='/contact' className='navbarlink'>
                 Contact
             </Link>
         </div>

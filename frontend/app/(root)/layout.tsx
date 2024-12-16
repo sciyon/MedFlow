@@ -1,13 +1,11 @@
-import React from 'react'
-import Navbar from '../../components/Navbar'
+import React from 'react';
 
-const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className='font-work-sans w-full min-h-screen bg-white'>
-        <Navbar/>
-        {children}
-    </main>
-  )
+    <html lang="en">
+      <body className="font-work-sans w-full min-h-screen bg-white flex flex-col">
+        <div className="flex-grow">{children}</div>
+      </body>
+    </html>
+  );
 }
-
-export default layout
