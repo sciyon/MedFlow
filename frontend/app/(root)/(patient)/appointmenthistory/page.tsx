@@ -8,7 +8,7 @@ interface Appointment {
   status: 'Pending' | 'Approved' | 'Denied';
 }
 
-// Dummy data structure
+//Dummy data structure
 const initialAppointments: Appointment[] = [
   { id: 'XXXXX-XXXX1', date: '12/20/24', time: '10:00AM', concern: 'Headache and sore throat', status: 'Pending' },
   { id: 'XXXXX-XXXX2', date: '12/21/24', time: '10:30AM', concern: 'Diarrhea and loss of appetite', status: 'Approved' },
