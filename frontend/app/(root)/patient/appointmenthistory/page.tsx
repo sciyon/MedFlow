@@ -122,17 +122,29 @@ const AppointmentHistory: React.FC = () => {
                 <td className="py-2 px-4 border">{appointment.time}</td>
                 <td className="py-2 px-4 border">{appointment.concern}</td>
                 <td className="py-2 px-4 border">
-                  <span
-                    className={`py-1 px-2 rounded-full text-sm ${
-                      appointment.status === 'Approved'
-                        ? 'text-green-700 bg-green-100'
-                        : appointment.status === 'Pending'
-                        ? 'text-yellow-700 bg-yellow-100'
-                        : 'text-red-700 bg-red-100'
-                    }`}
-                  >
-                    {appointment.status}
-                  </span>
+                <span className="flex items-center space-x-2">
+  <span
+    className={`w-3.5 h-3.5 rounded-full ${
+      appointment.status === 'Approved'
+        ? 'bg-green-500'
+        : appointment.status === 'Pending'
+        ? 'bg-yellow-500'
+        : 'bg-red-500'
+    }`}
+  />
+  <span
+    className={`text-sm font-medium ${
+      appointment.status === 'Approved'
+        ? 'text-green-700'
+        : appointment.status === 'Pending'
+        ? 'text-yellow-700'
+        : 'text-red-700'
+    }`}
+  >
+    {appointment.status}
+  </span>
+</span>
+
                 </td>
               </tr>
             ))}
@@ -141,29 +153,51 @@ const AppointmentHistory: React.FC = () => {
 
         {/* Pagination */}
         <div className="flex justify-center items-center mt-4 space-x-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index + 1)}
-              className={`w-8 h-8 rounded-full text-sm ${
-                currentPage === index + 1
-                  ? 'bg-teal-500 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
+  {/* Previous Button */}
+  <button
+    onClick={() => setCurrentPage(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="w-8 h-8 border border-teal-700 rounded-lg text-teal-700 hover:bg-teal-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-inner flex items-center justify-center"
+  >
+    &lt;
+  </button>
 
-        {/* Result Count */}
-        <div className="text-sm text-gray-600 text-center mt-2">
-          Showing results: {(currentPage - 1) * itemsPerPage + 1} -{' '}
-          {Math.min(currentPage * itemsPerPage, appointments.length)} of{' '}
-          {appointments.length}
-        </div>
-      </div>
+  {/* Page Numbers */}
+  <div className="flex items-center space-x-2 border border-teal-700 rounded-lg shadow-inner">
+    {Array.from({ length: totalPages }).map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentPage(index + 1)}
+        className={`w-8 h-8 rounded-lg text-sm flex items-center justify-center ${
+          currentPage === index + 1
+            ? 'bg-teal-700 text-white shadow-inner'
+            : 'bg-white text-teal-700 border hover:bg-teal-100'
+        }`}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+
+  {/* Next Button */}
+  <button
+    onClick={() => setCurrentPage(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="w-8 h-8 border border-teal-700 rounded-lg text-teal-700 hover:bg-teal-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-inner flex items-center justify-center"
+  >
+    &gt;
+  </button>
+</div>
+
+{/* Result Count */}
+<div className="text-sm text-gray-600 text-center mt-2">
+  Showing results: {(currentPage - 1) * itemsPerPage + 1} -{' '}
+  {Math.min(currentPage * itemsPerPage, appointments.length)} of{' '}
+  {appointments.length}
+</div>
+</div>
     </>
+      
   );
 };
 
