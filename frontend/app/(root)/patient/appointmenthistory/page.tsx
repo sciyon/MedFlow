@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar'
 
 interface Appointment {
   id: string;
@@ -49,7 +48,7 @@ const appointmenthistory: React.FC = () => {
   return (
     
     <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-teal-700">Appointment History</h2>
+      <h2 className="text-4xl text-secondary font-bold font-gabarito mb-4 text-teal-700">Appointment History</h2>
 
       {/* Search and Sort */}
       <div className="flex items-center mb-4">
