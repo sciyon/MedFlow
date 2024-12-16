@@ -25,8 +25,7 @@ model User {
   role          Role             @default(PATIENT)
   date_created  DateTime         @default(now())
   
-  user_data     Userdata?
-  
+  user_data     Userdata? 
   as_patient    Prescription[]   @relation("PatientPrescriptions")
   as_doctor     Prescription[]   @relation("DoctorPrescriptions")
   insurances    Insurance[]
@@ -60,7 +59,6 @@ model Appointment {
   date_appointment  DateTime
   date_modified     DateTime  @updatedAt
   
-  
   patient         User      @relation(fields: [patient_id], references: [id])
   patient_id      Int
 }
@@ -80,12 +78,10 @@ model Prescription {
   date_created   DateTime  @default(now())
   notes          String    @db.Text
   
-  patient        User      @relation("PatientPrescriptions", fields: [patient_id], references: [id])
   patient_id     Int
-  
-  doctor         User      @relation("DoctorPrescriptions", fields: [doctor_id], references: [id])
   doctor_id      Int
-
+  patient        User      @relation("PatientPrescriptions", fields: [patient_id], references: [id])
+  doctor         User      @relation("DoctorPrescriptions", fields: [doctor_id], references: [id])
   prescription_data PrescriptionData[]
 }
 
