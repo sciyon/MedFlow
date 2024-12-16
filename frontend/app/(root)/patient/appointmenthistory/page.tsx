@@ -54,7 +54,7 @@ const appointmenthistory: React.FC = () => {
       <div className="flex items-center mb-4">
         <input
           type="text"
-          placeholder="Search by ID"
+          placeholder="XXXXXX-XXXXX"
           value={searchId}
           onChange={(e) => setSearchId(e.target.value)}
           className="p-2 border rounded mr-2"
@@ -63,7 +63,7 @@ const appointmenthistory: React.FC = () => {
           onClick={handleSearch}
           className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"
         >
-          Search
+          Search by ID
         </button>
       </div>
 
@@ -86,17 +86,29 @@ const appointmenthistory: React.FC = () => {
               <td className="py-2 px-4 border">{appointment.time}</td>
               <td className="py-2 px-4 border">{appointment.concern}</td>
               <td className="py-2 px-4 border">
-                <span
-                  className={`py-1 px-2 rounded-full text-sm ${
-                    appointment.status === 'Approved'
-                      ? 'text-green-700 bg-green-100'
-                      : appointment.status === 'Pending'
-                      ? 'text-yellow-700 bg-yellow-100'
-                      : 'text-red-700 bg-red-100'
-                  }`}
-                >
-                  {appointment.status}
-                </span>
+              <span className="flex items-center space-x-2">
+  <span
+    className={`w-3.5 h-3.5 rounded-full ${
+      appointment.status === 'Approved'
+        ? 'bg-green-500'
+        : appointment.status === 'Pending'
+        ? 'bg-yellow-500'
+        : 'bg-red-500'
+    }`}
+  />
+  <span
+    className={`text-sm font-medium ${
+      appointment.status === 'Approved'
+        ? 'text-green-700'
+        : appointment.status === 'Pending'
+        ? 'text-yellow-700'
+        : 'text-red-700'
+    }`}
+  >
+    {appointment.status}
+  </span>
+</span>
+
               </td>
             </tr>
           ))}
