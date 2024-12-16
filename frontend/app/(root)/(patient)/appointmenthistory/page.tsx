@@ -16,7 +16,7 @@ const initialAppointments: Appointment[] = [
   { id: 'XXXXX-XXXX4', date: '12/21/24', time: '10:30AM', concern: 'Headache and sore throat', status: 'Approved' },
 ];
 
-const AppointmentHistory: React.FC = () => {
+const appointmenthistory: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]); // Fetched data
   const [searchId, setSearchId] = useState<string>(''); // Search query
   const [currentPage, setCurrentPage] = useState(1);
@@ -127,4 +127,4 @@ const AppointmentHistory: React.FC = () => {
   );
 };
 
-export default AppointmentHistory;
+export default appointmenthistory;
