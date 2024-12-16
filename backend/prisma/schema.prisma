@@ -6,16 +6,6 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
-model User {
-  id            Int       @id @default(autoincrement())
-  email         String    @unique
-  password      String    
-  status        String    
-  role          Role      @default(PATIENT)
-  date_created  DateTime  @default(now())
-}
-
 model Clinic {
   id            Int       @id @default(autoincrement())
   name          String
@@ -27,7 +17,18 @@ model Clinic {
   max_capacity  Int
 }
 
-model Patient {
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  password      String    
+  status        String    
+  role          Role      @default(PATIENT)
+  date_created  DateTime  @default(now())
+  user_data     Userdata? 
+}
+
+
+model Userdata {
   id            Int       @id @default(autoincrement()) 
   first_name    String    
   middle_name   String    
@@ -40,7 +41,8 @@ model Patient {
   landline      String    
   date_created  DateTime  @default(now())
   date_modified DateTime   
-  user_id       Int       @unique 
+  user          User      @relation(fields: [user_id], references: [id]) 
+  user_id       Int       @unique   
 }
 
 model Appointment {
