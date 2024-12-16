@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  password      String    
+  status        String    
+  role          Role      @default(PATIENT)
+  date_created  DateTime  @default(now())
+}
+
+model Clinic {
+  id            Int       @id @default(autoincrement())
+  name          String
+  time_start    String
+  time_end      String
+  address       String
+  email         String
+  phone_number  String
+  max_capacity  Int
+}
+
+model Patient {
+  id            Int       @id @default(autoincrement()) 
+  first_name    String    
+  middle_name   String    
+  last_name     String    
+  birth_date    DateTime  
+  age           Int       
+  sex           String    
+  address       String    
+  mobile        String    
+  landline      String    
+  date_created  DateTime  @default(now())
+  date_modified DateTime   
+  user_id       Int       @unique 
+}
+
+model Appointment {
+  id            Int       @id @default(autoincrement()) 
+  title         String    
+  description   String
+  images        String 
+  date_created  DateTime  @default(now())
+  date_appointment  DateTime
+  date_modified DateTime
+  patient_id    Int 
+}
+
+model Insurance {
+  id            Int       @id @default(autoincrement()) 
+  provider      String
+  policy_number String
+  date_created  DateTime  @default(now())
+  patient_id    Int
+}
+
+model Prescription {
+  id            Int       @id @default(autoincrement()) 
+  date_created  DateTime  @default(now())
+  notes         String
+  patient_id    Int
+  doctor_id     Int
+}
+
+enum Role {
+  PATIENT
+  DOCTOR
+  ASSISTANT
+}
