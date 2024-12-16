@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Gabarito, Nunito_Sans } from "next/font/google";
+import { Montserrat, Gabarito, Nunito_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
 // Load the fonts
@@ -18,6 +18,11 @@ const nunitoSans = Nunito_Sans({
   display: 'swap',
 });
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: "MedFlow",
   description: "A medical information system.",
@@ -29,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.className} ${gabarito.className} ${nunitoSans.className}`}>
+    <html lang="en" className={`${montserrat.className} ${inter.className} ${gabarito.className} ${nunitoSans.className} `}>
       <body className={`antialiased min-h-screen`}>
         {children}
       </body>

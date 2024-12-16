@@ -34,4 +34,8 @@ body {
     .input-label{
         @apply text-left text-secondary font-semibold
     }
+
+    .navbarlink{
+      @apply bg-white p-3 flex items-center gap-2 text-secondary mx-6 rounded-lg text-2xl font-semibold justify-start font-inter hover:bg-background
+    }
 }
