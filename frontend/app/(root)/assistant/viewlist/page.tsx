@@ -80,7 +80,7 @@ const AppointmentHistory: React.FC = () => {
             />
             <button
               onClick={handleSearch}
-              className="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 font-bold"
+              className="bg-teal-500 text-black px-4 py-2 rounded hover:bg-teal-600 font-bold"
             >
               Search by ID
             </button>
@@ -104,7 +104,7 @@ const AppointmentHistory: React.FC = () => {
         </div>
 
         {/* Table */}
-        <table className="w-full text-left border-collapse rounded-lg text-black">
+        <table className="w-full text-left border-collapse rounded-lg text-black border border-teal-600">
           <thead>
             <tr className="bg-teal-500">
               <th className="py-2 px-4 border-b border-teal-500">ID</th>
