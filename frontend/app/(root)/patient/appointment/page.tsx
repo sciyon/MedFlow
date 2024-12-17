@@ -25,7 +25,7 @@ const Page = () => {
         </div>
         
         {/* Upload Image */}
-        <div className="col-span-6 sm:col-span-2 flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg p-4 h-80">
+        <div className="col-span-6 sm:col-span-2 flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg p-4 ">
           <label className="text-center text-[#006D77]">Upload Photo</label>
           <input 
             type="file" 
