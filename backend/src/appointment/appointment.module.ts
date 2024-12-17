@@ -8,7 +8,10 @@ import { JwtModule } from '@nestjs/jwt'; // Import JwtModule
 @Module({
   imports: [
     PrismaModule,
-    JwtModule.register({ secret: 'yourSecretKey', signOptions: { expiresIn: '60m' } }), // Register JwtModule
+    JwtModule.register({ 
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: '60m' } 
+    }),
   ],
   controllers: [AppointmentController],
   providers: [AppointmentService],
