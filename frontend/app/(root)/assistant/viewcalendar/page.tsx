@@ -58,19 +58,32 @@ const AppointmentHistory: React.FC = () => {
 
   const renderAppointment = (appt: Appointment) => (
     <div key={appt.id} className="bg-teal-100 p-3 rounded-lg shadow-md hover:bg-teal-200">
-      <div className="text-sm font-semibold">{appt.concern}</div>
-      <div
-        className={`text-xs mt-1 ${
-          appt.status === "Approved"
-            ? "text-green-600"
-            : appt.status === "Pending"
-            ? "text-yellow-600"
-            : "text-red-600"
+      <div className="text-medium font-semibold">{appt.concern}</div>
+      <div className="flex items-center gap-2 mt-1">
+      {/* Status Circle */}
+      <span
+        className={`w-3.5 h-3.5 rounded-full ${
+          appt.status === 'Approved'
+            ? 'bg-green-500'
+            : appt.status === 'Pending'
+            ? 'bg-yellow-500'
+            : 'bg-red-500'
+        }`}
+      />
+      {/* Status Text */}
+      <span
+        className={`text-sm font-medium ${
+          appt.status === 'Approved'
+            ? 'text-green-700'
+            : appt.status === 'Pending'
+            ? 'text-yellow-700'
+            : 'text-red-700'
         }`}
       >
         {appt.status}
-      </div>
-      <button className="mt-2 text-teal-700 hover:text-teal-900">View</button>
+      </span>
+    </div>
+      <button className="mt-2 text-white hover:bg-teal-700 bg-teal-500 rounded p-1.5">View</button>
     </div>
   );
 
