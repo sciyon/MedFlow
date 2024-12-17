@@ -24,11 +24,12 @@ const Page = () => {
 
         {/* Patient Information */}
         <div className="col-span-6 sm:col-span-4 grid grid-cols-6 gap-4">
-          <div className="col-span-3">
+          {/* Row 1 */}
+          <div className="col-span-2">
             <label>First Name *</label>
             <input type="text" placeholder="Firstname" className="input-field w-full" />
           </div>
-          <div className="col-span-3">
+          <div className="col-span-2">
             <label>Last Name *</label>
             <input type="text" placeholder="Lastname" className="input-field w-full" />
           </div>
@@ -36,7 +37,9 @@ const Page = () => {
             <label>Middle Initial</label>
             <input type="text" placeholder="M.I." className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+
+          {/* Row 2 */}
+          <div className="col-span-1">
             <label>Birth Day *</label>
             <input type="text" placeholder="01" className="input-field w-full" />
           </div>
@@ -57,15 +60,15 @@ const Page = () => {
               <option>December</option>
             </select>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1">
             <label>Birth Year *</label>
             <input type="text" placeholder="2000" className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1">
             <label>Age *</label>
             <input type="text" placeholder="24" className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1">
             <label>Sex *</label>
             <select className="input-field w-full">
               <option>Male</option>
@@ -73,6 +76,7 @@ const Page = () => {
             </select>
           </div>
         </div>
+
 
         {/* Address Information */}
         <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Address Information</h1>
