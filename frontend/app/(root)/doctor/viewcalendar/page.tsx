@@ -21,6 +21,7 @@ const initialAppointments: Appointment[] = [
 const AppointmentHistory: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [view, setView] = useState<"week" | "month">("week");
+  const [calendarView, setCalendarView] = useState<"list" | "calendar">("calendar");
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
@@ -203,7 +204,20 @@ const AppointmentHistory: React.FC = () => {
 
       <div className="flex items-center gap-2 mb-4">
         <div className="flex items-center space-x-2">
-          <label htmlFor="view" className="text-teal-700 font-bold">Calendar View:</label>
+          <label htmlFor="calendar-view" className="text-teal-700 font-bold">View:</label>
+          <select
+            id="calendar-view"
+            className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600"
+            value={calendarView}
+            onChange={(e) => setCalendarView(e.target.value as "list" | "calendar")}
+          >
+            <option value="list">List</option>
+            <option value="calendar">Calendar</option>
+          </select>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <label htmlFor="view" className="text-teal-700 font-bold">View:</label>
           <select
             id="view"
             className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600"
