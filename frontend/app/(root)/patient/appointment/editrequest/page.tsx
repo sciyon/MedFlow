@@ -92,13 +92,18 @@ const Page = () => {
           </select>
         </div>
 
-        {/* Submit Button */}
-        <div className="col-span-6 flex justify-end">
-          <button 
+        {/* Button */}
+        <div className="col-span-6 flex justify-end space-x-4">
+        <button 
             type="submit" 
-            className="bg-teal-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
-            Request Appointment
-          </button>
+            className="bg-yellow-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
+            Edit Appointment
+        </button>
+        <button 
+            type="submit" 
+            className="bg-red-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
+            Cancel Appointment
+        </button>
         </div>
         
       </form>
