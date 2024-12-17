@@ -22,6 +22,7 @@ const AppointmentHistory: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [view, setView] = useState<"week" | "month">("week");
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [calendarView, setCalendarView] = useState<"list" | "calendar">("calendar");
 
   useEffect(() => {
     setAppointments(initialAppointments);
@@ -194,27 +195,42 @@ const AppointmentHistory: React.FC = () => {
         <button onClick={handlePrev} className="p-2 bg-teal-500 text-white rounded hover:bg-teal-600">
           Previous
         </button>
-        <div className="text-2xl font-bold">{getMonthYearHeader()}</div>
+        <div className="text-2xl text-teal-700 font-bold">{getMonthYearHeader()}</div>
         <button onClick={handleNext} className="p-2 bg-teal-500 text-white rounded hover:bg-teal-600">
           Next
         </button>
       </div>
 
       <div className="flex items-center gap-2 mb-4">
-        <label htmlFor="view" className="font-bold">View:</label>
-        <select
-          id="view"
-          className="p-2 border rounded bg-teal-500 text-white focus:outline-none hover:bg-teal-600"
-          value={view}
-          onChange={(e) => setView(e.target.value as "week" | "month")}
-        >
-          <option value="week">Week</option>
-          <option value="month">Month</option>
-        </select>
+        <div className="flex items-center space-x-2">
+          <label htmlFor="calendar-view" className="text-teal-700 font-bold">View:</label>
+          <select
+            id="calendar-view"
+            className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600 text-white"
+            value={calendarView}
+            onChange={(e) => setCalendarView(e.target.value as "list" | "calendar")}
+          >
+            <option value="list">List</option>
+            <option value="calendar">Calendar</option>
+          </select>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <label htmlFor="view" className="font-bold text-teal-700">Calendar:</label>
+          <select
+            id="view"
+            className="p-2 border rounded bg-teal-500 text-white focus:outline-none hover:bg-teal-600"
+            value={view}
+            onChange={(e) => setView(e.target.value as "week" | "month")}
+          >
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+          </select>
+        </div>
       </div>
 
       <table className="w-full text-left border-collapse rounded-lg border border-teal-600">
-        {view === "week" ? renderWeekView() : renderMonthView()}
+        {calendarView === "calendar" ? (view === "week" ? renderWeekView() : renderMonthView()) : null}
       </table>
     </div>
   );
