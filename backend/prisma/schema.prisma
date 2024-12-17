@@ -54,14 +54,14 @@ model Appointment {
   id                Int       @id @default(autoincrement()) 
   title             String    @db.VarChar(100)
   description       String
-  images            String?    @db.Text
+  images            String?   @db.Text
   date_created      DateTime  @default(now())
   date_appointment  DateTime
   date_modified     DateTime  @updatedAt
   status            Appointment_Status @default(PENDING)
   
-  patient         User?      @relation(fields: [patient_id], references: [id])
-  patient_id      Int?
+  patient           User      @relation(fields: [patient_id], references: [id])
+  patient_id        Int
 }
 
 model Insurance {

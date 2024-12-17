@@ -1,12 +1,12 @@
+// src/appointment/appointment.module.ts
 import { Module } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
-import { PrismaModule } from "src/prisma/prisma.module";
 import { AppointmentController } from './appointment.controller';
+import { PrismaModule } from 'src/prisma/prisma.module';
 
 @Module({
   imports: [PrismaModule],
-  exports: [AppointmentService],
-  providers: [AppointmentService],
   controllers: [AppointmentController],
+  providers: [AppointmentService],
 })
 export class AppointmentModule {}
