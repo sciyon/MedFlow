@@ -60,8 +60,8 @@ model Appointment {
   date_modified     DateTime  @updatedAt
   status            Appointment_Status @default(PENDING)
   
-  patient         User      @relation(fields: [patient_id], references: [id])
-  patient_id      Int
+  patient         User?      @relation(fields: [patient_id], references: [id])
+  patient_id      Int?
 }
 
 model Insurance {
