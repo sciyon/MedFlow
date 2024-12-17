@@ -104,7 +104,7 @@ const AppointmentHistory: React.FC = () => {
         </div>
 
         {/* Table */}
-        <table className="w-full text-left border-collapse rounded-lg">
+        <table className="w-full text-left border-collapse rounded-lg text-black">
           <thead>
             <tr className="bg-teal-500">
               <th className="py-2 px-4 border-b border-teal-500">ID</th>
