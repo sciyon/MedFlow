@@ -3,97 +3,96 @@ import React from 'react'
 const Page = () => {
   return (
     <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
-      <form className="grid grid-cols-6 gap-4 text-[#006D77]">
-        {/* Upload Photo */}
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Clinic Information</h1>
-        <div className="col-span-6 sm:col-span-2 flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg p-4">
-          <label className="text-center text-[#006D77]">Upload Photo</label>
-          <input 
-            type="file" 
-            accept="image/*" 
-            className="hidden" 
-            id="upload-photo"
-          />
-          <label 
-            htmlFor="upload-photo" 
-            className="cursor-pointer mt-2 text-[#006D77]"
-          >
-            Drag and drop a photo or select from files.
-          </label>
+      {/* Clinic Information */}
+      <section className="mb-8">
+        <h1 className="text-4xl font-semibold text-teal-600 mb-4">Clinic Information</h1>
+        <div className="grid grid-cols-6 gap-4">
+          <div className="col-span-6 sm:col-span-2 flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg p-4">
+            <label className="label-input">Clinic Photo</label>
+            <div className="w-32 h-32 bg-gray-200 rounded-lg flex items-center justify-center">
+              <p className="text-sm text-gray-500">Photo Placeholder</p>
+            </div>
+          </div>
+          <div className="col-span-6 sm:col-span-4">
+            <div className="mb-4 border border-gray-300 rounded-lg p-4">
+              <label className="block text-sm font-medium text-teal-600">Clinic Name</label>
+              <p className="text-lg font-semibold text-gray-800">ABC Clinic</p>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="border border-gray-300 rounded-lg p-4">
+                <label className="block text-sm font-medium text-teal-600">Owner First Name</label>
+                <p className="text-lg text-gray-800">Juan</p>
+              </div>
+              <div className="border border-gray-300 rounded-lg p-4">
+                <label className="block text-sm font-medium text-teal-600">Owner Middle Initial</label>
+                <p className="text-lg text-gray-800">J.</p>
+              </div>
+              <div className="border border-gray-300 rounded-lg p-4">
+                <label className="block text-sm font-medium text-teal-600">Owner Last Name</label>
+                <p className="text-lg text-gray-800">Dela Cruz</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Clinic Information */}
-        <div className="col-span-6 sm:col-span-4 grid grid-cols-6 gap-4">
-          <div className="col-span-6">
-            <label>Clinic Name *</label>
-            <input type="text" placeholder="Clinic Name" className="input-field w-full" />
+      {/* Address Information */}
+      <section className="mb-8">
+        <h1 className="text-4xl font-semibold text-teal-600 mb-4">Address Information</h1>
+        <div className="grid grid-cols-6 gap-4">
+          <div className="col-span-6 border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Address Line</label>
+            <p className="text-lg text-gray-800">Building Number, Street</p>
           </div>
-          <div className="col-span-2">
-            <label>Owner First name</label>
-            <input type="text" placeholder="Juan" className="input-field w-full" />
+          <div className="col-span-2 border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Barangay</label>
+            <p className="text-lg text-gray-800">Guadalupe</p>
           </div>
-          <div className="col-span-2">
-            <label>Owner Middle Initial</label>
-            <input type="text" placeholder="J." className="input-field w-full" />
+          <div className="col-span-2 border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">City</label>
+            <p className="text-lg text-gray-800">Cebu City</p>
           </div>
-          <div className="col-span-2">
-            <label>Owner Last Name</label>
-            <input type="text" placeholder="Dela Cruz" className="input-field w-full" />
+          <div className="col-span-2 border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Province</label>
+            <p className="text-lg text-gray-800">Cebu</p>
           </div>
         </div>
+      </section>
 
-        {/* Address Information */}
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mt-4">Address Information</h1>
-        <div className="col-span-6">
-          <label>Address Line *</label>
-          <input type="text" placeholder="Building Number, Street" className="input-field w-full" />
+      {/* Contact Information */}
+      <section className="mb-8">
+        <h1 className="text-4xl font-semibold text-teal-600 mb-4">Contact Information</h1>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Mobile Number</label>
+            <p className="text-lg text-gray-800">09171234568</p>
+          </div>
+          <div className="border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Landline Number</label>
+            <p className="text-lg text-gray-800">123-4567</p>
+          </div>
+          <div className="border border-gray-300 rounded-lg p-4">
+            <label className="block text-sm font-medium text-teal-600">Email Address</label>
+            <p className="text-lg text-gray-800">emailaddress@yahoo.com</p>
+          </div>
         </div>
-        <div className="col-span-2">
-          <label>Barangay *</label>
-          <input type="text" placeholder="Guadalupe" className="input-field w-full" />
-        </div>
-        <div className="col-span-2">
-          <label>City *</label>
-          <input type="text" placeholder="Cebu City" className="input-field w-full" />
-        </div>
-        <div className="col-span-2">
-          <label>Province *</label>
-          <input type="text" placeholder="Cebu" className="input-field w-full" />
-        </div>
+      </section>
 
-        {/* Contact Information */}
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mt-4">Contact Information</h1>
-        <div className="col-span-6 grid grid-cols-3 gap-4">
-          <div>
-            <label>Mobile Number *</label>
-            <input type="text" placeholder="09171234568" className="input-field w-full" />
-          </div>
-          <div>
-            <label>Landline Number *</label>
-            <input type="text" placeholder="123-4567" className="input-field w-full" />
-          </div>
-          <div>
-            <label>Email Address *</label>
-            <input type="email" placeholder="emailaddress@yahoo.com" className="input-field w-full" />
-          </div>
+      {/* Other Information */}
+      <section className="mb-8">
+        <h1 className="text-4xl font-semibold text-teal-600 mb-4">Other Information</h1>
+        <div className="border border-gray-300 rounded-lg p-4">
+          <label className="block text-sm font-medium text-teal-600">Max Capacity</label>
+          <p className="text-lg text-gray-800">1</p>
         </div>
+      </section>
 
-        {/* Other Information */}
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mt-4">Other Information</h1>
-        <div className="col-span-6 grid grid-cols-3 gap-4">
-          <div>
-            <label>Max Capacity (how many appointments it can handle at a single time)</label>
-            <input type="email" placeholder="1" className="input-field " />
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <div className="col-span-6 flex justify-end">
-          <button type="submit" className="bg-teal-400 hover:bg-teal-500 text-white py-3 px-6 rounded">
-            Save
-          </button>
-        </div>
-      </form>
+      {/* Save Button */}
+      <div className="flex justify-end">
+        <button className="bg-teal-500 hover:bg-teal-600 text-white py-3 px-6 rounded-lg shadow-md">
+          Save
+        </button>
+      </div>
     </div>
   )
 }
