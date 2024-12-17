@@ -56,19 +56,20 @@ const AppointmentHistory: React.FC = () => {
   };
 
   const renderAppointment = (appt: Appointment) => (
-    <div key={appt.id} className="mt-1 p-1 bg-teal-100 rounded text-s">
-      <div>{appt.concern}</div>
+    <div key={appt.id} className="bg-teal-100 p-3 rounded-lg shadow-md hover:bg-teal-200">
+      <div className="text-sm font-semibold">{appt.concern}</div>
       <div
-        className={`text-sm font-medium ${
+        className={`text-xs mt-1 ${
           appt.status === "Approved"
-            ? "text-green-700"
+            ? "text-green-600"
             : appt.status === "Pending"
-            ? "text-yellow-700"
-            : "text-red-700"
+            ? "text-yellow-600"
+            : "text-red-600"
         }`}
       >
         {appt.status}
       </div>
+      <button className="mt-2 text-teal-700 hover:text-teal-900">View</button>
     </div>
   );
 
@@ -90,10 +91,10 @@ const AppointmentHistory: React.FC = () => {
         </thead>
         <tbody>
           {timeSlots.map((time, rowIndex) => (
-            <tr key={rowIndex}>
+            <tr key={rowIndex} className="border-b">
               <td className="border p-2 text-center font-medium">{time}</td>
               {weekDays.map((day, colIndex) => (
-                <td key={colIndex} className="border p-2 align-top h-20">
+                <td key={colIndex} className="border p-4 align-top h-20">
                   {appointments
                     .filter((appt) => appt.date === day && appt.time.startsWith(time))
                     .map((appt) => renderAppointment(appt))}
@@ -124,7 +125,7 @@ const AppointmentHistory: React.FC = () => {
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((day, colIndex) => (
-                <td key={colIndex} className="border p-2 align-top h-20 w-20 text-center">
+                <td key={colIndex} className="border p-4 align-top h-20 w-20 text-center">
                   {day ? (
                     <>
                       <div className="font-bold text-sm">{parseInt(day.split("-")[2])}</div>
@@ -201,19 +202,21 @@ const AppointmentHistory: React.FC = () => {
       </div>
 
       <div className="flex items-center gap-2 mb-4">
-        <label htmlFor="view" className="font-bold">View:</label>
-        <select
-          id="view"
-          className="p-2 border rounded bg-teal-500 text-white focus:outline-none hover:bg-teal-600"
-          value={view}
-          onChange={(e) => setView(e.target.value as "week" | "month")}
-        >
-          <option value="week">Week</option>
-          <option value="month">Month</option>
-        </select>
+        <div className="flex items-center space-x-2">
+          <label htmlFor="view" className="text-teal-700 font-bold">Calendar View:</label>
+          <select
+            id="view"
+            className="p-2 border rounded bg-teal-500 focus:outline-none hover:bg-teal-600"
+            value={view}
+            onChange={(e) => setView(e.target.value as "week" | "month")}
+          >
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+          </select>
+        </div>
       </div>
 
-      <table className="w-full text-left border-collapse rounded-lg border border-teal-600">
+      <table className="w-full text-left border-collapse rounded-lg">
         {view === "week" ? renderWeekView() : renderMonthView()}
       </table>
     </div>
