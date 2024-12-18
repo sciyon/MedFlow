@@ -31,11 +31,11 @@ const DoctorDashboard: React.FC = () => {
   // Get today's date and time
   const today = new Date();
   const options: Intl.DateTimeFormatOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-  const todayDate = today.toLocaleDateString("en-US", options); // Format date as "Friday December 18, 2024"
-  const time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }); // Format time as "1:00 AM"
+  const todayDate = today.toLocaleDateString("en-US", options); 
+  const time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }); 
 
   // Filter appointments for today
-  const todayISOString = today.toISOString().split("T")[0]; // Extract date part only (yyyy-mm-dd)
+  const todayISOString = today.toISOString().split("T")[0]; 
   const todaysAppointments = appointments.filter(
     (appt) => appt.date === todayISOString
   ).length;
@@ -49,8 +49,20 @@ const DoctorDashboard: React.FC = () => {
             {patients}
           </div>
         </div>
-        <div className="p-6 bg-white w-3/4 rounded-lg shadow-md">
-          <h2 className="text-3xl font-semibold mb-4">Appointment Info</h2>
+        <div className="p-6 bg-white rounded-lg shadow-md text-black">
+        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointments</h2>
+        <div className="text-5xl font-bold text-teal-700 pb-5">
+          {todayDate}, {time}
+        </div>
+        <div className="text-2xl font-semibold text-teal-600">
+          There are {todaysAppointments} appointments for you today.
+        </div>
+      </div>
+        
+      </div>
+
+      <div className="p-6 bg-white w-fullrounded-lg shadow-md">
+          <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointment Info</h2>
           <div className="flex flex-grow gap-4 w-full text-center">
             <div className="bg-green-400 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Done</div>
@@ -70,17 +82,7 @@ const DoctorDashboard: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="p-6 bg-white rounded-lg shadow-md text-black">
-        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointments</h2>
-        <div className="text-6xl font-bold text-teal-700 pb-5">
-          Today is {todayDate}, {time}
-        </div>
-        <div className="text-2xl font-semibold text-teal-600">
-          There are {todaysAppointments} appointments for you today.
-        </div>
-      </div>
+      
     </div>
   );
 };
