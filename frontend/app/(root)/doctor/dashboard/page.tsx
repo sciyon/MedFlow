@@ -45,31 +45,31 @@ const DoctorDashboard: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold text-gray-600 mb-2">
+      <div className=" flex flex-grow w-full  gap-2 mb-6">
+        <div className="p-6 bg-white rounded-lg w-1/4 shadow-md">
+          <h2 className="text-3xl font-semibold text-gray-600 mb-2">
             Total Patients
           </h2>
-          <div className="text-4xl font-bold text-teal-600">{patients}</div>
+          <div className="text-6xl font-bold text-teal-600 text-center pt-4">{patients}</div>
         </div>
-        <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold text-gray-600 mb-4">
+        <div className="p-6 bg-white w-3/4 rounded-lg shadow-md">
+          <h2 className="text-3xl font-semibold text-gray-600 mb-4">
             Appointment Info
           </h2>
-          <div className="flex flex-wrap gap-4 text-center">
-            <div className="bg-teal-500 text-white rounded-md p-4 w-24 shadow-md">
+          <div className="flex flex-grow gap-4 w-full text-center">
+            <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Done</div>
               <div className="text-3xl font-semibold">{totalDone}</div>
             </div>
-            <div className="bg-teal-500 text-white rounded-md p-4 w-24 shadow-md">
+            <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Upcoming</div>
               <div className="text-3xl font-semibold">{totalUpcoming}</div>
             </div>
-            <div className="bg-teal-500 text-white rounded-md p-4 w-24 shadow-md">
+            <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Finished</div>
               <div className="text-3xl font-semibold">{totalFinished}</div>
             </div>
-            <div className="bg-teal-500 text-white rounded-md p-4 w-24 shadow-md">
+            <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Total</div>
               <div className="text-3xl font-semibold">{totalAppointments}</div>
             </div>
@@ -78,7 +78,7 @@ const DoctorDashboard: React.FC = () => {
       </div>
 
       <div className="p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold text-gray-600 mb-4">
+        <h2 className="text-3xl font-semibold text-gray-600 mb-4">
           Appointment Statistics
         </h2>
         <div className="flex justify-center">
