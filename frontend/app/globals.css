@@ -38,4 +38,8 @@ body {
     .navbarlink{
       @apply bg-white p-3 flex items-center gap-2 text-secondary mx-6 rounded-lg text-2xl font-semibold justify-start font-inter hover:bg-background
     }
+
+    .label-input{
+      @apply text-lg font-medium text-gray-700 mb-2
+    }
 }
