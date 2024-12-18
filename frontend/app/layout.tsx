@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat, Gabarito, Nunito_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
-// Load the fonts
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
@@ -34,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.className} ${inter.className} ${gabarito.className} ${nunitoSans.className} `}>
+    <html>
       <body className={`antialiased min-h-screen`}>
         {children}
       </body>

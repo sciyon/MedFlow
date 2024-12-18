@@ -13,12 +13,12 @@ const PatientSidebar = () => {
         <span>Dashboard</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/patient/appointment" className="navbarlink">
         <BookOpen className='w-7 h-7'/>
         <span>Booking</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/patient/appointment/history" className="navbarlink">
         <History className='w-7 h-7'/>
         <span>History</span>
       </Link>

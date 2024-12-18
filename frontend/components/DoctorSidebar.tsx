@@ -6,42 +6,42 @@ import SideBarLogo from './SideBarLogo'
 const DoctorSidebar = () => {
   return (
     <div className="flex flex-col bg-primary w-1/6 font-nunito gap-4">
-      <Link href="/patient/" ><SideBarLogo /></Link>
+      <Link href="/doctor" ><SideBarLogo /></Link>
 
-      <Link href="/patient/" className="navbarlink">
+      <Link href="/doctor" className="navbarlink">
         <LayoutGrid className='w-7 h-7'/>
         <span>Dashboard</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/appointment" className="navbarlink">
         <BookOpen className='w-7 h-7'/>
         <span>Booking</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/appointment/history" className="navbarlink">
         <History className='w-7 h-7'/>
         <span>History</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/calendar" className="navbarlink">
         <Calendar className='w-7 h-7'/>
         <span>Schedule</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/patient" className="navbarlink">
         <UsersRound className='w-7 h-7'/>
         <span>Patients</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/clinic" className="navbarlink">
         <Settings className='w-7 h-7'/>
         <span>Settings</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      {/* <Link href="/doctor/staff" className="navbarlink">
         <UserCog className='w-7 h-7'/>
         <span>Staff</span>
-      </Link>
+      </Link> */}
 
     </div>
   )
