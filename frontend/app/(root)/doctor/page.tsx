@@ -9,6 +9,7 @@ interface Appointment {
 
 const DoctorDashboard: React.FC = () => {
   const [patients, setPatients] = useState<number>(18);
+  const [doctors, setDoctors] = useState<number>(8); // Added state for total doctors
   const [appointments, setAppointments] = useState<Appointment[]>([
     { id: "1", status: "Upcoming", date: "2024-12-18" },
     { id: "2", status: "Upcoming", date: "2024-12-18" },
@@ -28,13 +29,11 @@ const DoctorDashboard: React.FC = () => {
   ).length;
   const totalAppointments = appointments.length;
 
-  // Get today's date and time
   const today = new Date();
   const options: Intl.DateTimeFormatOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
   const todayDate = today.toLocaleDateString("en-US", options); 
   const time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }); 
 
-  // Filter appointments for today
   const todayISOString = today.toISOString().split("T")[0]; 
   const todaysAppointments = appointments.filter(
     (appt) => appt.date === todayISOString
@@ -42,47 +41,51 @@ const DoctorDashboard: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="flex flex-grow w-full text-teal-700 gap-2 mb-6">
-        <div className="p-6 bg-white rounded-lg w-1/4 shadow-md">
-          <h2 className="text-3xl font-semibold mb-2">Total Patients</h2>
-          <div className="text-6xl font-bold text-teal-700 text-center pt-4">
-            {patients}
+      <div className="text-teal-700 gap-2 mb-4">
+        <div className="p-6 bg-white rounded-lg shadow-md text-black">
+          <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointments</h2>
+          <div className="text-5xl font-bold text-teal-700 pb-5">
+            {todayDate}, {time}
+          </div>
+          <div className="text-2xl font-semibold text-teal-600">
+            There are {todaysAppointments} appointments for you today.
           </div>
         </div>
-        <div className="p-6 bg-white rounded-lg shadow-md text-black">
-        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointments</h2>
-        <div className="text-5xl font-bold text-teal-700 pb-5">
-          {todayDate}, {time}
-        </div>
-        <div className="text-2xl font-semibold text-teal-600">
-          There are {todaysAppointments} appointments for you today.
-        </div>
-      </div>
-        
       </div>
 
-      <div className="p-6 bg-white w-fullrounded-lg shadow-md">
-          <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointment Info</h2>
-          <div className="flex flex-grow gap-4 w-full text-center">
-            <div className="bg-green-400 text-white rounded-md p-4 w-1/4 shadow-md">
-              <div className="text-lg font-bold">Done</div>
-              <div className="text-3xl font-semibold">{totalDone}</div>
-            </div>
-            <div className="bg-blue-400 text-white rounded-md p-4 w-1/4 shadow-md">
-              <div className="text-lg font-bold">Upcoming</div>
-              <div className="text-3xl font-semibold">{totalUpcoming}</div>
-            </div>
-            <div className="bg-yellow-400 text-white rounded-md p-4 w-1/4 shadow-md">
-              <div className="text-lg font-bold">Pending</div>
-              <div className="text-3xl font-semibold">{totalPending}</div>
-            </div>
-            <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
-              <div className="text-lg font-bold">Total</div>
-              <div className="text-3xl font-semibold">{totalAppointments}</div>
-            </div>
+      <div className="p-6 bg-white w-full rounded-lg mb-4 shadow-md">
+        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointment Info</h2>
+        <div className="flex flex-grow gap-4 w-full text-center">
+          <div className="bg-green-400 text-white rounded-md p-4 w-1/4 shadow-md">
+            <div className="text-lg font-bold">Done</div>
+            <div className="text-3xl font-semibold">{totalDone}</div>
+          </div>
+          <div className="bg-blue-400 text-white rounded-md p-4 w-1/4 shadow-md">
+            <div className="text-lg font-bold">Upcoming</div>
+            <div className="text-3xl font-semibold">{totalUpcoming}</div>
+          </div>
+          <div className="bg-yellow-400 text-white rounded-md p-4 w-1/4 shadow-md">
+            <div className="text-lg font-bold">Pending</div>
+            <div className="text-3xl font-semibold">{totalPending}</div>
+          </div>
+          <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
+            <div className="text-lg font-bold">Total</div>
+            <div className="text-3xl font-semibold">{totalAppointments}</div>
           </div>
         </div>
-      
+      </div>
+
+      {/* Total Patients and Doctors */}
+      <div className="flex flex-grow gap-4 w-full">
+        <div className="p-6 bg-white rounded-lg w-1/2 shadow-md text-teal-700">
+          <h2 className="text-3xl font-semibold mb-2">Total Patients</h2>
+          <div className="text-6xl font-bold text-center pt-4">{patients}</div>
+        </div>
+        <div className="p-6 bg-white rounded-lg w-1/2 shadow-md text-teal-700">
+          <h2 className="text-3xl font-semibold mb-2">Total Doctors</h2> {/* Added total doctors section */}
+          <div className="text-6xl font-bold text-center pt-4">{doctors}</div>
+        </div>
+      </div>
     </div>
   );
 };
