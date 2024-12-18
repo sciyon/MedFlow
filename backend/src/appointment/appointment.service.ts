@@ -1,4 +1,3 @@
-// src/appointment/appointment.service.ts
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Appointment_Status } from '@prisma/client';
