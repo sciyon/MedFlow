@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.className} ${inter.className} ${gabarito.className} ${nunitoSans.className}`}>
+    <html>
       <body className={`antialiased min-h-screen`}>
         {children}
       </body>
