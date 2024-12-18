@@ -63,4 +63,17 @@ export class AppointmentController {
       throw new HttpException(error.message, error.status || 500);
     }
   }
+  
+  @Get('patient/:id')
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Roles('DOCTOR', 'ASSISTANT', 'PATIENT')
+  async getPatientAppointments(
+    @Param('id', ParseIntPipe) id: number
+  ) {
+    try {
+      return await this.appointmentService.getAllAppointmentsFromPatient(id);
+    } catch (error) {
+      throw new HttpException(error.message, error.status || 500);
+    }
+  }
 }
