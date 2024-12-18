@@ -4,7 +4,9 @@ const Page = () => {
   return (
     <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
       <form className="grid grid-cols-6 gap-4 text-[#006D77]">
-                
+        
+      <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Patient Name</h1>
+
         {/* Request Information */}
         <div className="col-span-6 flex space-x-6">
             {/* Appointment Status */}
@@ -95,13 +97,23 @@ const Page = () => {
         <div className="col-span-6 flex justify-end space-x-4">
         <button 
             type="submit" 
-            className="bg-yellow-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
-            Edit Appointment
+            className="bg-teal-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
+            View Patient Detail
         </button>
         <button 
             type="submit" 
-            className="bg-red-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
-            Cancel Appointment
+            className="bg-violet-400 hover:bg-violet-500 text-white py-2 px-6 rounded">
+            Update
+        </button>
+        <button 
+            type="submit" 
+            className="bg-green-400 hover:bg-green-500 text-white py-2 px-6 rounded">
+            Approve
+        </button>
+        <button 
+            type="submit" 
+            className="bg-red-400 hover:bg-red-500 text-white py-2 px-6 rounded">
+            Deny
         </button>
         </div>
         

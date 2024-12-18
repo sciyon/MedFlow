@@ -1,8 +1,10 @@
-import { Controller, Body, Post, UsePipes, ValidationPipe, Get, Param, ParseIntPipe, HttpException, Patch, Delete } from "@nestjs/common";
+import { Controller, Body, Post, UsePipes, ValidationPipe, Get, Param, ParseIntPipe, HttpException, Patch, Delete, UseGuards } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dtos/CreateUser.dto";
 import { UpdateUserDto } from "./dtos/UpdateUser.dto";
 import { CreateUserDataDto } from "./dtos/CreateUserData.dto";
+import { Roles } from "src/auth/decorator/roles.decorator";
+import { RolesGuard } from "src/auth/guard/roles.guard";
 
 @Controller('users')
 export class UsersController{
@@ -25,6 +27,8 @@ export class UsersController{
   }
 
   @Get()
+  @UseGuards(RolesGuard)
+  @Roles('ADMIN', 'DOCTOR')
   get_users(){
     return this.usersService.get_users()
   }

@@ -4,7 +4,7 @@ const Page = () => {
   return (
     <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
       <form className="grid grid-cols-6 gap-4 text-[#006D77]">
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Request Information</h1>
+        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Request Appointment</h1>
         
         {/* Request Information */}
         <div className="col-span-6">
@@ -72,7 +72,7 @@ const Page = () => {
           </select>
         </div>
 
-        {/* Submit Button */}
+        {/* Button */}
         <div className="col-span-6 flex justify-end">
           <button 
             type="submit" 
@@ -80,6 +80,7 @@ const Page = () => {
             Request Appointment
           </button>
         </div>
+
         
       </form>
     </div>
