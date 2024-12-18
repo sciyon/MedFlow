@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 interface Appointment {
   id: string;
-  status: "Upcoming" | "Done" | "Pending";  // Changed "Finished" to "Pending"
-  date: string; // Add a date field to each appointment
+  status: "Upcoming" | "Done" | "Pending"; 
+  date: string;
 }
 
 const DoctorDashboard: React.FC = () => {
@@ -14,9 +14,9 @@ const DoctorDashboard: React.FC = () => {
     { id: "2", status: "Upcoming", date: "2024-12-18" },
     { id: "3", status: "Done", date: "2024-12-17" },
     { id: "4", status: "Done", date: "2024-12-17" },
-    { id: "5", status: "Pending", date: "2024-12-28" },  // Changed status to "Pending"
-    { id: "6", status: "Pending", date: "2024-12-28" },  // Changed status to "Pending"
-    { id: "7", status: "Pending", date: "2024-12-28" },  // Changed status to "Pending"
+    { id: "5", status: "Pending", date: "2024-12-28" },
+    { id: "6", status: "Pending", date: "2024-12-28" },  
+    { id: "7", status: "Pending", date: "2024-12-28" },  
   ]);
 
   const totalUpcoming = appointments.filter(
@@ -57,8 +57,8 @@ const DoctorDashboard: React.FC = () => {
               <div className="text-3xl font-semibold">{totalUpcoming}</div>
             </div>
             <div className="bg-yellow-400 text-white rounded-md p-4 w-1/4 shadow-md">
-              <div className="text-lg font-bold">Pending</div> {/* Changed label to "Pending" */}
-              <div className="text-3xl font-semibold">{totalPending}</div> {/* Changed from "Finished" */}
+              <div className="text-lg font-bold">Pending</div> 
+              <div className="text-3xl font-semibold">{totalPending}</div>
             </div>
             <div className="bg-teal-500 text-white rounded-md p-4 w-1/4 shadow-md">
               <div className="text-lg font-bold">Total</div>
