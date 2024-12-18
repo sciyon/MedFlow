@@ -30,12 +30,14 @@ const DoctorDashboard: React.FC = () => {
 
   // Get today's date and time
   const today = new Date();
-  const todayDate = today.toISOString().split("T")[0]; // Only the date part (yyyy-mm-dd)
-  const time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format the time
+  const options: Intl.DateTimeFormatOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+  const todayDate = today.toLocaleDateString("en-US", options); // Format date as "Friday December 18, 2024"
+  const time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }); // Format time as "1:00 AM"
 
   // Filter appointments for today
+  const todayISOString = today.toISOString().split("T")[0]; // Extract date part only (yyyy-mm-dd)
   const todaysAppointments = appointments.filter(
-    (appt) => appt.date === todayDate
+    (appt) => appt.date === todayISOString
   ).length;
 
   return (
@@ -72,15 +74,11 @@ const DoctorDashboard: React.FC = () => {
 
       <div className="p-6 bg-white rounded-lg shadow-md text-black">
         <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointments</h2>
-        <div className="">
-          <div className="text-6xl font-bold text-teal-700 pb-5">
-            Today is {todayDate} {time} 
-          </div>
+        <div className="text-6xl font-bold text-teal-700 pb-5">
+          Today is {todayDate}, {time}
         </div>
-        <div className="">
-          <div className="text-2xl font-semibold text-teal-600">
-            There are {todaysAppointments} appointments for you today.
-          </div>
+        <div className="text-2xl font-semibold text-teal-600">
+          There are {todaysAppointments} appointments for you today.
         </div>
       </div>
     </div>
