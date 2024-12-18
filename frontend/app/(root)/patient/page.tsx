@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 interface Appointment {
@@ -11,19 +12,15 @@ interface Appointment {
 const Page: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
 
-  const handleCreateAppointment = () => {
-    alert("Redirecting to Create Appointment Page...");
-  };
-
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="mb-6">
-        <button
-          onClick={handleCreateAppointment}
+        <Link 
+          href='/patient/appointment/request'
           className="bg-teal-600 rounded p-4 text-white font-semibold hover:bg-teal-700"
         >
           Create Appointment
-        </button>
+        </Link>
       </div>
 
       <div className="bg-white p-4 rounded shadow-md">
