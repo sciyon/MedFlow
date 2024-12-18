@@ -49,57 +49,6 @@ const DoctorDashboard: React.FC = () => {
     ],
   };
 
-"use client";
-import React, { useState } from "react";
-
-interface Appointment {
-  id: string;
-  status: "Upcoming" | "Done" | "Finished";
-  date: string; // Add a date field to each appointment
-}
-
-const DoctorDashboard: React.FC = () => {
-  const [patients, setPatients] = useState<number>(18);
-  const [appointments, setAppointments] = useState<Appointment[]>([
-    { id: "1", status: "Upcoming", date: "2024-12-18" },
-    { id: "2", status: "Upcoming", date: "2024-12-18" },
-    { id: "3", status: "Done", date: "2024-12-17" },
-    { id: "4", status: "Done", date: "2024-12-17" },
-    { id: "5", status: "Finished", date: "2024-12-16" },
-    { id: "6", status: "Finished", date: "2024-12-16" },
-    { id: "7", status: "Finished", date: "2024-12-16" },
-  ]);
-
-  const totalUpcoming = appointments.filter(
-    (appt) => appt.status === "Upcoming"
-  ).length;
-  const totalDone = appointments.filter((appt) => appt.status === "Done").length;
-  const totalFinished = appointments.filter(
-    (appt) => appt.status === "Finished"
-  ).length;
-  const totalAppointments = appointments.length;
-
-  // Get today's date
-  const today = new Date().toISOString().split("T")[0];
-
-  // Filter appointments for today
-  const todaysAppointments = appointments.filter(
-    (appt) => appt.date === today
-  ).length;
-
-  const pieData = {
-    labels: ["Upcoming", "Done", "Finished"],
-    datasets: [
-      {
-        label: "Appointments",
-        data: [totalUpcoming, totalDone, totalFinished],
-        backgroundColor: ["#22D3EE", "#4ADE80", "#F472B6"],
-        borderColor: ["#14B8A6", "#22C55E", "#EC4899"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="flex flex-grow w-full text-teal-700 gap-2 mb-6">
