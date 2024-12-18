@@ -4,9 +4,30 @@ const Page = () => {
   return (
     <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
       <form className="grid grid-cols-6 gap-4 text-[#006D77]">
-        <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Request Appointment</h1>
         
+      <h1 className="col-span-6 text-4xl font-semibold text-teal-600 mb-4">Patient Name</h1>
+
         {/* Request Information */}
+        <div className="col-span-6 flex space-x-6">
+            {/* Appointment Status */}
+            <div className="flex-1">
+                <label>Appointment Status*</label>
+                <div className="col-span-6 sm:col-span-2 flex items-center space-x-4 border border-gray-300 rounded-md p-4">
+                <div className="flex items-center space-x-2">
+                    <span className="text-[#006D77]">Pending</span>
+                    <span className="w-4 h-4 rounded-full bg-yellow-500"></span>
+                </div>
+                </div>
+            </div>
+
+            {/* Appointment ID */}
+            <div className="flex-1">
+                <label>Appointment ID</label>
+                <h1 className="text-4xl font-semibold text-teal-600 mb-4">XXXX-XXXX</h1>
+         </div>
+
+
+        </div>
         <div className="col-span-6">
           <label>Short Description of Concern *</label>
           <input 
@@ -73,14 +94,28 @@ const Page = () => {
         </div>
 
         {/* Button */}
-        <div className="col-span-6 flex justify-end">
-          <button 
+        <div className="col-span-6 flex justify-end space-x-4">
+        <button 
             type="submit" 
             className="bg-teal-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
-            Request Appointment
-          </button>
+            View Patient Detail
+        </button>
+        <button 
+            type="submit" 
+            className="bg-violet-400 hover:bg-violet-500 text-white py-2 px-6 rounded">
+            Update
+        </button>
+        <button 
+            type="submit" 
+            className="bg-green-400 hover:bg-green-500 text-white py-2 px-6 rounded">
+            Approve
+        </button>
+        <button 
+            type="submit" 
+            className="bg-red-400 hover:bg-red-500 text-white py-2 px-6 rounded">
+            Deny
+        </button>
         </div>
-
         
       </form>
     </div>

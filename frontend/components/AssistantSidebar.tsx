@@ -6,29 +6,29 @@ import SideBarLogo from './SideBarLogo'
 const AssistantSidebar = () => {
   return (
     <div className="flex flex-col bg-primary w-1/6 font-nunito gap-4">
-      <Link href="/patient/" ><SideBarLogo /></Link>
+      <Link href="/assistant" ><SideBarLogo /></Link>
 
-      <Link href="/patient/" className="navbarlink">
+      <Link href="/assistant" className="navbarlink">
         <LayoutGrid className='w-7 h-7'/>
         <span>Dashboard</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/assistant/appointment" className="navbarlink">
         <BookOpen className='w-7 h-7'/>
         <span>Booking</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/assistant/appointment/history" className="navbarlink">
         <History className='w-7 h-7'/>
         <span>History</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/assistant/calendar" className="navbarlink">
         <Calendar className='w-7 h-7'/>
         <span>Schedule</span>
       </Link>
 
-      <Link href="/patient/appointmenthistory" className="navbarlink">
+      <Link href="/assistant/patients" className="navbarlink">
         <UsersRound className='w-7 h-7'/>
         <span>Patients</span>
       </Link>

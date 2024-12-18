@@ -28,7 +28,7 @@ const DoctorSidebar = () => {
         <span>Schedule</span>
       </Link>
 
-      <Link href="/doctor/appointmenthistory" className="navbarlink">
+      <Link href="/doctor/patient" className="navbarlink">
         <UsersRound className='w-7 h-7'/>
         <span>Patients</span>
       </Link>
