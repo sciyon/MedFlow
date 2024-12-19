@@ -39,6 +39,29 @@ export class UsersService {
     return findUser
   }
 
+  
+  async get_user_by_email_and_contact(contact: string) {
+    const findUser = await this.prisma.user.findFirst({
+      where: {
+        OR: [
+          {
+            user_data: {
+              mobile: contact,
+            },
+          },
+        ],
+      }
+    });
+  
+    if (!findUser) {
+      throw new HttpException('User Not Found', 404);
+    }
+  
+    return findUser;
+  }
+  
+
+
   get_user_by_id(id: number){
     return this.prisma.user.findUnique({ 
       where : { id },  

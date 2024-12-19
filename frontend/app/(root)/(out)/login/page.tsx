@@ -12,6 +12,7 @@ import { JwtPayload } from 'jwt-decode';
 const page = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [contact, setContact] = useState('');
   const dispatch = useDispatch();
   const router = useRouter(); 
 
@@ -29,6 +30,7 @@ const page = () => {
       const response = await axiosInstance.post('/auth/login', {
         email,
         password,
+        contact
       });
       console.log('Login Response:', response.data); 
 
@@ -78,12 +80,19 @@ const page = () => {
           <h1 className="text-primary pl-2">Login</h1>
         </div>
         <form onSubmit={handleLogin} className="flex flex-col items-center w-full gap-4">
-          <input
+          {/* <input
             type="text"
             className="input-field w-2/3"
             placeholder="juandelacruz@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          /> */}
+          <input
+            type="text"
+            className="input-field w-2/3"
+            placeholder="09123456789"
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
           />
           <input
             type="password"
