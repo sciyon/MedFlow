@@ -9,7 +9,7 @@ const Header = () => {
         <div className="h-fit w-fit p-1 rounded-full">
           <User  className='w-12 h-12'/>
         </div>
-        <span>Patient XXXXX</span>
+        <span>User XXXXX</span>
       </div>
     </div>
   )
