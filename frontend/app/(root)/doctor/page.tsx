@@ -50,16 +50,16 @@ const DoctorDashboard: React.FC = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <div className="flex flex-grow w-full text-teal-700 gap-2 mb-4">
-        <div className="p-6 bg-white rounded-lg w-1/4 shadow-md text-teal-700">
-          <h2 className="text-2xl font-semibold mb-2">Patients this week</h2>
-          <div className="text-6xl font-bold text-center pt-4">{uniquePatients.size}</div>
+      <div className="flex flex-grow w-full text-teal-700 gap-4 mb-4">
+        <div className="p-6 bg-white rounded-lg w-auto   shadow-md text-teal-700">
+          <h2 className="text-2xl font-semibold mb-2">Patients today</h2>
+          <div className="text-8xl font-bold text-center pt-4">{uniquePatients.size}</div>
         </div>
-        <div className="p-6 w-3/4 bg-white rounded-lg shadow-md text-black">
-          <div className="text-5xl font-bold text-teal-700 pb-5">
+        <div className="p-6 w-full bg-white rounded-lg shadow-md text-black">
+          <div className="text-5xl font-bold text-teal-700 pb-2">
             {todayDate}, {time}
           </div>
-          <div className="text-4xl font-bold text-teal-700 pb-2">
+          <div className="text-4xl font-bold text-teal-700 pb-14">
             {dayOfWeek}
           </div>
           <div className="text-2xl font-semibold text-teal-500">
@@ -69,7 +69,7 @@ const DoctorDashboard: React.FC = () => {
       </div>
 
       <div className="p-6 bg-white w-full rounded-lg mb-4 shadow-md">
-        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Appointment Info</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-teal-700">Weekly Appointment Info</h2>
         <div className="flex flex-grow gap-4 w-full text-center">
           <div className="bg-green-400 text-white rounded-md p-4 w-1/4 shadow-md">
             <div className="text-lg font-bold">Done</div>

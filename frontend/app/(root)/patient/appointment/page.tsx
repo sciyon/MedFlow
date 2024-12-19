@@ -44,6 +44,7 @@ const Page: React.FC = () => {
       date_appointment: appointmentDate.toISOString(), // Converts to "2024-06-22T10:00:00Z" format
       patient_id: userId,
     };
+    console.log(payload)
   
     try {
       // Send the request to the backend

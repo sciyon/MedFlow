@@ -36,7 +36,7 @@ const Page: React.FC = () => {
           const appointmentDate = new Date(appointment.date_appointment);
 
           // Check if the status is 'Pending' and the appointment date is in the future
-          return appointment.status === "Pending" && appointmentDate > currentDate;
+          return appointment.status === "PENDING" && appointmentDate > currentDate;
         });
 
         setAppointments(filteredAppointments);
