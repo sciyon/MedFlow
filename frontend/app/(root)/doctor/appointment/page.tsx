@@ -5,6 +5,7 @@ import axiosInstance from "@/utilities/axios"; // Make sure this handles the JWT
 import { RootState } from "@/lib/store"; // Assuming this is the path to your store
 
 const Page: React.FC = () => {
+  const [notification, setNotification] = useState<string | null>(null);
   const [patientId, setPatientId] = useState(0);
   const [shortDescription, setShortDescription] = useState("");
   const [description, setDescription] = useState("");
@@ -46,6 +47,8 @@ const Page: React.FC = () => {
     };
 
     try {
+      setNotification("Appointment requested successfully!");
+      setTimeout(() => setNotification(null), 3000); // Clear after 3 seconds
       const token = document.cookie.split("=")[1];
       if (!token) {
         alert("Authentication token is missing.");
@@ -164,6 +167,11 @@ const Page: React.FC = () => {
           </button>
         </div>
       </form>
+      {notification && (
+  <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-800 rounded">
+    {notification}
+  </div>
+)}
     </div>
   );
 };
