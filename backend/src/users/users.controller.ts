@@ -42,7 +42,9 @@ export class UsersController{
   }
 
   @Patch(':id')
-  update_user_by_id(@Param('id', ParseIntPipe) id: number, @Body() updateUpdateUserDto: UpdateUserDto){
+  update_user_by_id(
+    @Param('id', ParseIntPipe) id: number, 
+    @Body() updateUpdateUserDto: UpdateUserDto){
     return this.usersService.update_user_by_id(id, updateUpdateUserDto)
   }
 

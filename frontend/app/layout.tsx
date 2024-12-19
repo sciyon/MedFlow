@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Gabarito, Nunito_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
+
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -35,7 +37,9 @@ export default function RootLayout({
   return (
     <html>
       <body className={`antialiased min-h-screen`}>
-        {children}
+        <StoreProvider>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );

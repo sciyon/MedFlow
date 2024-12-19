@@ -1,4 +1,3 @@
-// src/appointment/appointment.service.ts
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Prisma, Appointment_Status } from '@prisma/client';
@@ -63,6 +62,23 @@ export class AppointmentService {
       where: { id }, 
       data
     })
+  }
+
+  async getAllAppointmentsFromPatient(id: number) {
+    // Check if the patient exists
+    const patient = await this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        appointments: true,  // Include appointments related to the user
+      },
+    });
+  
+    if (!patient) {
+      throw new HttpException('Patient not found', HttpStatus.BAD_REQUEST);
+    }
+  
+    // Return the appointments related to the patient
+    return patient.appointments;
   }
 
   async getAllAppointments(filter: {

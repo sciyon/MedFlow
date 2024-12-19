@@ -4,13 +4,12 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { AppointmentModule } from './appointment/appointment.module';
-import { ClinicService } from './clinic/clinic.service';
-import { ClinicController } from './clinic/clinic.controller';
 import { ClinicModule } from './clinic/clinic.module';
+import { PatientController } from './patient/patient.controller';
 
 @Module({
   imports: [UsersModule, AuthModule, AppointmentModule, ClinicModule],
-  controllers: [AppController, ClinicController],
-  providers: [AppService, ClinicService],
+  controllers: [AppController, PatientController],
+  providers: [AppService],
 })
 export class AppModule {}
