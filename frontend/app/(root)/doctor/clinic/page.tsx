@@ -18,19 +18,19 @@ const Page = () => {
 
           {/* Clinic Details */}
           <div className="col-span-6 sm:col-span-4 grid grid-cols-6 gap-4">
-            <div className="col-span-6">
+            <div className="col-span-6 text-teal-600">
               <label>Clinic Name *</label>
               <input type="text" placeholder="Clinic Name" className="input-field w-full" />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 text-teal-600">
               <label>Owner First Name</label>
               <input type="text" placeholder="Juan" className="input-field w-full" />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 text-teal-600">
               <label>Owner Middle Initial</label>
               <input type="text" placeholder="J." className="input-field w-full" />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 text-teal-600">
               <label>Owner Last Name</label>
               <input type="text" placeholder="Dela Cruz" className="input-field w-full" />
             </div>
@@ -42,19 +42,19 @@ const Page = () => {
       <section className="mb-8">
         <h1 className="text-4xl font-semibold text-teal-600 mb-4">Address Information</h1>
         <div className="grid grid-cols-6 gap-4">
-          <div className="col-span-6">
+          <div className="col-span-6 text-teal-600">
             <label>Address Line *</label>
             <input type="text" placeholder="Building Number, Street" className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 text-teal-600">
             <label>Barangay *</label>
             <input type="text" placeholder="Guadalupe" className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 text-teal-600">
             <label>City *</label>
             <input type="text" placeholder="Cebu City" className="input-field w-full" />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 text-teal-600">
             <label>Province *</label>
             <input type="text" placeholder="Cebu" className="input-field w-full" />
           </div>
@@ -64,16 +64,16 @@ const Page = () => {
       {/* Contact Information */}
       <section className="mb-8">
         <h1 className="text-4xl font-semibold text-teal-600 mb-4">Contact Information</h1>
-        <div className="grid grid-cols-3 gap-4">
-          <div>
+        <div className="grid grid-cols-3 gap-4 ">
+          <div className="text-teal-600">
             <label>Mobile Number *</label>
             <input type="text" placeholder="09171234568" className="input-field w-full" />
           </div>
-          <div>
+          <div className="text-teal-600">
             <label>Landline Number *</label>
             <input type="text" placeholder="123-4567" className="input-field w-full" />
           </div>
-          <div>
+          <div className="text-teal-600">
             <label>Email Address *</label>
             <input type="email" placeholder="emailaddress@yahoo.com" className="input-field w-full" />
           </div>
@@ -84,7 +84,7 @@ const Page = () => {
       <section className="mb-8">
         <h1 className="text-4xl font-semibold text-teal-600 mb-4">Other Information</h1>
         <div className="grid grid-cols-3 gap-4">
-          <div>
+          <div className="text-teal-600">
             <label>Max Capacity (how many appointments it can handle at a single time)</label>
             <input type="number" placeholder="1" className="input-field w-full" />
           </div>
