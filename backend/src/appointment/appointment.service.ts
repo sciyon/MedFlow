@@ -65,7 +65,6 @@ export class AppointmentService {
   }
 
   async getAllAppointmentsFromPatient(id: number) {
-    // Check if the patient exists
     const patient = await this.prisma.user.findUnique({
       where: { id },
       include: {

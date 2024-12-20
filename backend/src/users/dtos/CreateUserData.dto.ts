@@ -24,7 +24,7 @@ export class CreateUserDataDto {
 
   @IsDateString() // For ISO date string validation
   @IsNotEmpty()
-  birth_date: string;
+  birth_date: Date;
 
   @IsEnum(Gender) // Restrict to specific values
   @IsNotEmpty()
