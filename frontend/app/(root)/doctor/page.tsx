@@ -49,10 +49,10 @@ const DoctorDashboard: React.FC = () => {
   const uniquePatients = new Set(weekAppointments.map((appt) => appt.id));
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 m-5 rounded-xl">
       <div className="flex flex-grow w-full text-teal-700 gap-4 mb-4">
         <div className="p-6 bg-white rounded-lg w-auto   shadow-md text-teal-700">
-          <h2 className="text-2xl font-semibold mb-2">Patients today</h2>
+          <h2 className="text-2xl font-semibold mb-2">Appointments today</h2>
           <div className="text-8xl font-bold text-center pt-4">{uniquePatients.size}</div>
         </div>
         <div className="p-6 w-full bg-white rounded-lg shadow-md text-black">
@@ -61,9 +61,6 @@ const DoctorDashboard: React.FC = () => {
           </div>
           <div className="text-4xl font-bold text-teal-700 pb-14">
             {dayOfWeek}
-          </div>
-          <div className="text-2xl font-semibold text-teal-500">
-            There are {totalUpcoming} upcoming appointments for you today.
           </div>
         </div>
       </div>

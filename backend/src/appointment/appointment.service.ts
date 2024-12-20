@@ -138,4 +138,126 @@ export class AppointmentService {
   });
   */
   
+  async getDashboardInfo() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to the start of the day
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const weekStart = new Date(today);
+    weekStart.setDate(today.getDate() - today.getDay()); // Start of the week (Sunday)
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 7); // End of the week (Saturday)
+
+    try {
+      const appointmentsToday = await this.prisma.appointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: today,
+            lt: tomorrow,
+          },
+        },
+      });
+
+      const noUserAppointmentsToday = await this.prisma.noUserAppointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: today,
+            lt: tomorrow,
+          },
+        },
+      });
+
+      const doneAppointments = await this.prisma.appointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      const doneNoUserAppointments = await this.prisma.noUserAppointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      const upcomingAppointments = await this.prisma.appointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: today,
+          },
+        },
+      });
+
+      const upcomingNoUserAppointments = await this.prisma.noUserAppointment.count({
+        where: {
+          status: Appointment_Status.APPROVED,
+          date_appointment: {
+            gte: today,
+          },
+        },
+      });
+
+      const pendingAppointments = await this.prisma.appointment.count({
+        where: {
+          status: Appointment_Status.PENDING,
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      const pendingNoUserAppointments = await this.prisma.noUserAppointment.count({
+        where: {
+          status: Appointment_Status.PENDING,
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      const totalAppointmentsThisWeek = await this.prisma.appointment.count({
+        where: {
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      const totalNoUserAppointmentsThisWeek = await this.prisma.noUserAppointment.count({
+        where: {
+          date_appointment: {
+            gte: weekStart,
+            lt: weekEnd,
+          },
+        },
+      });
+
+      return {
+        appointmentsToday: appointmentsToday + noUserAppointmentsToday,
+        weeklyStatistics: {
+          done: doneAppointments + doneNoUserAppointments,
+          upcoming: upcomingAppointments + upcomingNoUserAppointments,
+          pending: pendingAppointments + pendingNoUserAppointments,
+          total: totalAppointmentsThisWeek + totalNoUserAppointmentsThisWeek,
+        },
+      };
+    } catch (error) {
+      console.error('Error fetching dashboard information:', error);
+      throw error;
+    }
+  }
 }

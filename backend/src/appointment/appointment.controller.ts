@@ -76,4 +76,12 @@ export class AppointmentController {
       throw new HttpException(error.message, error.status || 500);
     }
   }
+
+  @Get('doctor')
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Roles('DOCTOR')
+  async getDoctorDashboard(){
+    return await this.appointmentService.getDashboardInfo();
+  }
+  
 }

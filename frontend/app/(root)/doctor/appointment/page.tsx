@@ -74,7 +74,7 @@ const Page: React.FC = () => {
   };
 
   return (
-    <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
+    <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg">
       <form className="grid grid-cols-6 gap-4 text-[#006D77]" onSubmit={handleSubmit}>
         {/* Request Information */}
         <div className="col-span-2">
