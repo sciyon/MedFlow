@@ -5,7 +5,7 @@ import axiosInstance from "@/utilities/axios"; // Make sure this handles the JWT
 import { RootState } from "@/lib/store"; // Assuming this is the path to your store
 
 const Page: React.FC = () => {
-  const [patientId, setPatientId] = useState(0);
+  const [patientId, setPatientId] = useState<string>("");
   const [shortDescription, setShortDescription] = useState("");
   const [description, setDescription] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
@@ -18,47 +18,49 @@ const Page: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (!userId) {
       alert("User is not logged in.");
       return;
     }
-
-    if (!patientId || isNaN(Number(patientId))) {
-      alert("Patient ID must be a valid number.");
+  
+    // Validate and convert patientId
+    const patientIdNumber = Number(patientId);
+    if (!patientId || isNaN(patientIdNumber) || patientIdNumber <= 0) {
+      alert("Patient ID must be a valid positive number.");
       return;
     }
-
+  
     const timeString = preferredTime.toUpperCase().replace("NN", "PM");
     const appointmentDate = new Date(`${selectedDate} ${timeString}`);
-
+  
     if (isNaN(appointmentDate.getTime())) {
       alert("Invalid date or time format.");
       return;
     }
-
+  
     const payload = {
       title: shortDescription,
       description,
       images: image,
       date_appointment: appointmentDate.toISOString(),
-      patient_id: Number(patientId),
+      patient_id: patientIdNumber, // Use the converted number here
     };
-
+  
     try {
       const token = document.cookie.split("=")[1];
       if (!token) {
         alert("Authentication token is missing.");
         return;
       }
-
+  
       const response = await axiosInstance.post("/appointments/create", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
+  
       console.log("Appointment request submitted:", response.data);
       alert("Appointment requested successfully!");
-      setPatientId(0);
+      setPatientId("");
       setShortDescription("");
       setDescription("");
       setSelectedDate("");
@@ -72,13 +74,14 @@ const Page: React.FC = () => {
       alert("Failed to request appointment. Please try again.");
     }
   };
+  
 
   return (
     <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg">
       <form className="grid grid-cols-6 gap-4 text-[#006D77]" onSubmit={handleSubmit}>
         {/* Request Information */}
         <div className="col-span-2">
-          <label>User ID *</label>
+          <label className="input-label">User ID *</label>
           <input
             type="number"
             placeholder="User ID"
@@ -88,7 +91,7 @@ const Page: React.FC = () => {
           />
         </div>
         <div className="col-span-4">
-          <label>Short Description of Concern *</label>
+          <label className="input-label">Short Description of Concern *</label>
           <input
             type="text"
             placeholder="Checkup / Medical Exam"
@@ -98,11 +101,10 @@ const Page: React.FC = () => {
           />
         </div>
         <div className="col-span-6">
-          <label>Description of Concern *</label>
-          <input
-            type="text"
+          <label className="input-label">Description of Concern *</label>
+          <textarea
             placeholder="Fever for more than 3 days"
-            className="w-full h-24 p-4 border border-gray-300 rounded-md"
+            className="w-full h-24 px-4 py-2 border border-gray-300 rounded-md"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -110,7 +112,7 @@ const Page: React.FC = () => {
 
         {/* Upload Image */}
         <div className="col-span-6 sm:col-span-2 flex flex-col items-center justify-center border-2 border-gray-300 border-dashed rounded-lg p-4 ">
-          <label className="text-center text-[#006D77]">Upload Photo</label>
+          <label  className="input-label">Upload Photo</label>
           <input
             type="file"
             accept="image/*"
@@ -123,8 +125,9 @@ const Page: React.FC = () => {
         </div>
 
         {/* Calendar */}
+        
         <div className="col-span-6 sm:col-span-2">
-          <label className="text-[#006D77]">Select Date</label>
+          <label  className="input-label">Select Date</label>
           <input
             type="date"
             className="w-full p-4 border border-gray-300 rounded-md"
@@ -135,7 +138,7 @@ const Page: React.FC = () => {
 
         {/* Preferred Start Time */}
         <div className="col-span-6 sm:col-span-2">
-          <label className="text-[#006D77]">Preferred Start Time</label>
+          <label  className="input-label">Preferred Start Time</label>
           <select
             className="w-full p-4 border border-gray-300 rounded-md"
             value={preferredTime}
@@ -159,7 +162,7 @@ const Page: React.FC = () => {
 
         {/* Button */}
         <div className="col-span-6 flex justify-end">
-          <button type="submit" className="bg-teal-400 hover:bg-teal-500 text-white py-2 px-6 rounded">
+          <button type="submit" className="submit-btn">
             Request Appointment
           </button>
         </div>
