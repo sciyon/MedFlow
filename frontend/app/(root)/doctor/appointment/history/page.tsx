@@ -127,15 +127,15 @@ const AppointmentHistory: React.FC = () => {
               {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
               {/* Table */}
-              <table className="w-full text-left border-collapse rounded-lg text-black border border-teal-600">
+              <table className="w-full text-left border-collapse text-black border border-primary rounded-2xl">
                   <thead>
-                  <tr className="bg-teal-500">
-                      <th className="py-2 px-4 border-b border-teal-500">ID</th>
-                      <th className="py-2 px-4 border-b border-teal-500">Date</th>
-                      <th className="py-2 px-4 border-b border-teal-500">Time</th>
-                      <th className="py-2 px-4 border-b border-teal-500">Concern Title</th>
-                      <th className="py-2 px-4 border-b border-teal-500">Status</th>
-                  </tr>
+                    <tr className="bg-primary text-white">
+                        <th className="py-2 px-4 border-b border-primary">ID</th>
+                        <th className="py-2 px-4 border-b border-primary">Status</th>
+                        <th className="py-2 px-4 border-b border-primary">Date</th>
+                        <th className="py-2 px-4 border-b border-primary">Time</th>
+                        <th className="py-2 px-4 border-b border-primary">Concern Title</th>
+                    </tr>
                   </thead>
                   <tbody>
                   {paginatedData.map((appointment, index) => {
@@ -155,15 +155,9 @@ const AppointmentHistory: React.FC = () => {
                           <tr key={index} className="hover:bg-gray-100">
                               <td className="py-2 px-4 border-b border-teal-500">{appointment.id}</td>
                               <td className="py-2 px-4 border-b border-teal-500">
-                                  {isFutureOrToday(appointment.date_appointment) ? formattedDate : <span className="text-gray-500 line-through">{formattedDate}</span>}
-                              </td>
-
-                              <td className="py-2 px-4 border-b border-teal-500">{formattedTime}</td>
-                              <td className="py-2 px-4 border-b border-teal-500">{appointment.title}</td>
-                              <td className="py-2 px-4 border-b border-teal-500">
                                 <span className="flex items-center space-x-2">
                                 <span
-                                    className={`w-3.5 h-3.5 rounded-full ${
+                                    className={`w-3 h-3.5 rounded-full ${
                                     appointment.status === "APPROVED"
                                         ? "bg-green-500"
                                         : appointment.status === "PENDING"
@@ -184,6 +178,12 @@ const AppointmentHistory: React.FC = () => {
                                 </span>
                                 </span>
                               </td>
+                              <td className="py-2 px-4 border-b border-teal-500">
+                                  {isFutureOrToday(appointment.date_appointment) ? formattedDate : <span className="text-gray-500 line-through">{formattedDate}</span>}
+                              </td>
+
+                              <td className="py-2 px-4 border-b border-teal-500">{formattedTime}</td>
+                              <td className="py-2 px-4 border-b border-teal-500">{appointment.title}</td>
                           </tr>
                       );
                   })}

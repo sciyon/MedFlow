@@ -95,10 +95,10 @@ const CalendarView: React.FC = () => {
         return dailyAppointments.map((appt) => (
             <div
                 key={appt.id}
-                className={`bg-teal-100 p-1 rounded text-xs font-semibold mb-1`}
+                className={`bg-teal-100 p-1 rounded font-semibold mb-1 font-inter text-sm`}
             >
-                {appt.time_appointment} -
-                <span className={`font-semibold
+                {appt.time_appointment}: 
+                <span className={`
                  ${appt.status === "APPROVED" ? "text-green-700" :
                      appt.status === "PENDING" ? "text-yellow-700" :
                          "text-red-700"
@@ -113,12 +113,12 @@ const CalendarView: React.FC = () => {
 
 
     return (
-        <div className="p-5">
+        <div className="m-5 bg-white p-5 rounded-xl">
             {error && <p className="text-red-500 text-center mb-4">{error}</p>}
             <div className="flex justify-between items-center mb-4">
                 <button
                     onClick={handlePrevMonth}
-                    className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600"
+                    className="px-4 py-2 bg-primary text-white rounded hover:bg-teal-600"
                 >
                     Previous
                 </button>
@@ -130,17 +130,17 @@ const CalendarView: React.FC = () => {
                 </h2>
                 <button
                     onClick={handleNextMonth}
-                    className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600"
+                    className="px-4 py-2 bg-primary text-white rounded hover:bg-teal-600"
                 >
                     Next
                 </button>
             </div>
 
-            <table className="w-full border-collapse border border-teal-600">
+            <table className="w-full border-collapse border border-primary">
                 <thead>
-                <tr className="bg-teal-500 text-white">
+                <tr className="bg-primary text-white">
                     {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, i) => (
-                        <th key={i} className="py-2 px-4 border border-teal-600  text-center w-[14.285%]">
+                        <th key={i} className="py-2 px-4 border border-primary  text-center w-[14.285%]">
                             {day}
                         </th>
                     ))}
@@ -154,7 +154,7 @@ const CalendarView: React.FC = () => {
                             .map((day, colIndex) => (
                                 <td
                                     key={colIndex}
-                                    className="border border-teal-600 text-black align-top p-2 h-20 w-[14.285%]"
+                                    className="border border-primary text-black align-top p-2 h-20 w-[14.285%]"
                                 >
                                     {day && (
                                         <>
