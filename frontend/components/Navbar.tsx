@@ -23,11 +23,11 @@ const Navbar = () => {
                 Contact
             </Link>
         </div>
-        <div className='flex gap-8 items-center ml-auto mr-8'>
-          <Link href='/signup' className='text-base font-medium text-secondary'>
+        <div className='flex gap-8 items-center ml-auto mr-8 text-lg  font-montserrat'>
+          <Link href='/signup' className='text-2xl font-medium text-secondary'>
               Register
           </Link>
-          <Link href='/login' className='text-base font-medium text-white bg-secondary rounded-full px-10 py-3'>
+          <Link href='/login' className='text-2xl font-medium text-white bg-secondary rounded-full px-10 py-3'>
               Login
           </Link>
         </div>

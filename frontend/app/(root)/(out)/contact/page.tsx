@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <div className="min-h-screen w-full flex flex-col justify-stretch justify-start items-center bg-gray-50 p-8">
+    <div className="w-full flex flex-col justify-stretch items-center bg-gray-50 p-8">
       {/* Title Section */}
       <div className="text-center mt-10">
         <h1 className="text-5xl font-bold text-teal-600">Contact Us</h1>

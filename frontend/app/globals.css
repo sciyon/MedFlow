@@ -28,7 +28,7 @@ body {
 
 @layer utilities{
     .input-field{
-        @apply h-12 pl-4 rounded-xl bg-field text-white placeholder:text-gray-300 text-lg font-[var(--font-host-sans)]
+        @apply h-12 pl-4 rounded-xl bg-slate-100 text-secondary placeholder:text-gray-300 text-lg font-gabarito
     }
 
     .input-label{
@@ -41,5 +41,9 @@ body {
 
     .label-input{
       @apply text-lg font-medium text-gray-700 mb-2
+    }
+
+    .submit-btn{
+      @apply bg-primary text-white text-2xl px-6 py-2 rounded-full hover:bg-cyan-600
     }
 }

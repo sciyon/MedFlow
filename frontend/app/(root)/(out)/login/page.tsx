@@ -12,10 +12,8 @@ import { JwtPayload } from 'jwt-decode';
 const page = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [contact, setContact] = useState('');
   const dispatch = useDispatch();
   const router = useRouter(); 
-
 
   interface CustomJwtPayload extends JwtPayload {
     sub: string;
@@ -29,8 +27,7 @@ const page = () => {
     try {
       const response = await axiosInstance.post('/auth/login', {
         email,
-        password,
-        contact
+        password
       });
       console.log('Login Response:', response.data); 
 
@@ -75,24 +72,17 @@ const page = () => {
   return (
     <div className="grid grid-cols-2 bg-white min-h-full w-full text-black pt-10 pb-24">
       <div className="flex flex-col justify-center items-center p-10">
-        <div className="flex text-8xl font-bold mb-8">
+        <div className="flex text-8xl font-bold mb-8 font-gabarito">
           <h1>User</h1>
           <h1 className="text-primary pl-2">Login</h1>
         </div>
-        <form onSubmit={handleLogin} className="flex flex-col items-center w-full gap-4">
-          {/* <input
+        <form onSubmit={handleLogin} className="flex flex-col items-center gap-4 w-3/4">
+          <input
             type="text"
             className="input-field w-2/3"
             placeholder="juandelacruz@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          /> */}
-          <input
-            type="text"
-            className="input-field w-2/3"
-            placeholder="09123456789"
-            value={contact}
-            onChange={(e) => setContact(e.target.value)}
           />
           <input
             type="password"
@@ -102,7 +92,7 @@ const page = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="w-2/3 flex justify-end">
-            <button className="bg-primary text-white text-2xl px-6 py-2 rounded-full">
+            <button className="submit-btn">
               Submit
             </button>
           </div>
