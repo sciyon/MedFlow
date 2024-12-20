@@ -63,6 +63,19 @@ model Appointment {
   patient           User      @relation(fields: [patient_id], references: [id])
   patient_id        Int
 }
+model NoUserAppointment {
+  id                Int       @id @default(autoincrement()) 
+  title             String    @db.VarChar(100)
+  description       String
+  images            String?   @db.Text
+  date_created      DateTime  @default(now())
+  date_appointment  DateTime
+  date_modified     DateTime  @updatedAt
+  phone_number      String
+  email_address     String?
+  
+  status            Appointment_Status @default(PENDING)
+}
 
 model Insurance {
   id             Int       @id @default(autoincrement())
