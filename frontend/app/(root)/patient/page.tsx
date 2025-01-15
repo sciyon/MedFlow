@@ -53,7 +53,7 @@ const Page: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
       <div className="mb-6">
         <button
           onClick={handleCreateAppointment}

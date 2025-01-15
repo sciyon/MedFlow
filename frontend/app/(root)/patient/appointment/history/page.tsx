@@ -68,7 +68,7 @@ const AppointmentHistory: React.FC = () => {
 
   return (
     <>
-      <div className="p-6 bg-white rounded-lg shadow-md">
+      <div className="mt-5 mr-5 mb-5 ml-5 bg-white p-8 rounded-lg shadow-lg mx-auto">
         {/* Filters and Search */}
         <div className="flex items-center mb-4 space-x-4">
           {/* View Dropdown */}

@@ -125,6 +125,7 @@ enum Gender {
 }
 
 enum Appointment_Status {
+  FINISHED
   PENDING
   APPROVED
   DENIED

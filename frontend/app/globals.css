@@ -32,7 +32,7 @@ body {
     }
 
     .input-label{
-        @apply text-left text-secondary font-semibold
+        @apply text-secondary font-nunito text-lg font-semibold
     }
 
     .navbarlink{

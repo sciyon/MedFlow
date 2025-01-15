@@ -1,6 +1,6 @@
 import React from 'react'
 import FooterLoggedIn from '@/components/FooterLoggedIn'
-import PatientSidebar from '@/components/PatientSidebar'
+import PatientSidebar from '@/components/patient/PatientSidebar'
 import Header from '@/components/Header'
 
 const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
